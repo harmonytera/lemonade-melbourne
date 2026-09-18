@@ -115,7 +115,7 @@
     }
     .announce b { color: #fff; }
     .announce span { margin-inline: .62rem; color: var(--primary); }
-    .site-header { position: relative; z-index: 10; background: rgba(235,234,223,.97); border-bottom: 1px solid rgba(99,89,76,.18); }
+    .site-header { position: sticky; top: 0; z-index: 20; background: rgba(235,234,223,.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
     .header-inner { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
     .wordmark { display: block; width: clamp(150px, 15vw, 190px); text-decoration: none; line-height: 1; }
     .nav { display: flex; align-items: center; gap: 1.55rem; }
