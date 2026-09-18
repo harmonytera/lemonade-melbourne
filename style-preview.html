@@ -172,7 +172,7 @@
     .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.4rem; }
 
     .hero-stage {
-      min-height: calc(100svh - 154px);
+      min-height: calc(100svh - 156px);
       display: flex;
       flex-direction: column;
     }
@@ -271,7 +271,7 @@
     }
 
     .proof-strip { flex: 0 0 auto; background: var(--espresso); color: var(--on-dark); padding: .82rem 0; }
-    .proof-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: .5rem; }
+    .proof-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: .5rem; }
     .proof-item { padding: .35rem 1.2rem; border-left: 1px solid rgba(214,195,169,.35); }
     .proof-item:first-child { border-left: 0; padding-left: 0; }
     a.proof-item { color: inherit; text-decoration: none; }
@@ -376,8 +376,8 @@
       .hero h1 { max-width: 10ch; }
       .portrait-wrap { max-width: 610px; margin-inline: auto; }
       .guide-head .lede, .results-head p { justify-self: start; }
-      .proof-grid { grid-template-columns: repeat(3, 1fr); }
-      .proof-item:nth-child(4) { border-left: 0; padding-left: 0; }
+      .proof-grid { grid-template-columns: repeat(2, 1fr); }
+      .proof-item:nth-child(odd) { border-left: 0; padding-left: 0; }
       .section-head, .type-row { grid-template-columns: 120px 1fr; }
       .content-intro { position: static; }
     }
@@ -400,7 +400,6 @@
       .review-pill { left: -.2rem; bottom: 3.8rem; }
       .proof-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem .5rem; }
       .proof-item { padding-left: .75rem; }
-      .proof-item:nth-child(4) { border-left: 1px solid rgba(214,195,169,.35); padding-left: .75rem; }
       .proof-item:nth-child(odd) { border-left: 0; padding-left: 0; }
       .proof-item strong { font-size: 1.35rem; }
       .proof-item span { font-size: .57rem; }
@@ -430,7 +429,7 @@
 
     @media (min-width: 901px) and (max-height: 820px) {
       .header-inner { min-height: 68px; }
-      .hero-stage { min-height: calc(100svh - 144px); }
+      .hero-stage { min-height: calc(100svh - 146px); }
       .hero { padding-block: 1.15rem; }
       .hero-grid { gap: 3.2rem; }
       .hero h1 { font-size: clamp(3.3rem, 5.1vw, 4.35rem); max-width: 9.5ch; }
@@ -510,7 +509,6 @@
         <div class="wrap proof-grid">
           <a class="proof-item" href="https://www.google.com/maps/place/Lemonade+Brows/@-33.8856731,151.1785211,17z/data=!4m8!3m7!1s0x6b12bd1e7e5c5301:0xbccc50af9c1b1785!8m2!3d-33.8856731!4d151.1785211!9m1!1b1!16s%2Fg%2F11qtzz320k" target="_blank" rel="noopener" aria-label="Read 119 Google reviews"><strong>★ 5.0</strong><span>119 Google reviews</span></a>
           <div class="proof-item"><strong>20</strong><span>Years in the industry</span></div>
-          <div class="proof-item"><strong>3 hrs</strong><span>One woman at a time</span></div>
           <div class="proof-item"><strong>2</strong><span>Appointments, both included</span></div>
           <div class="proof-item"><strong>12</strong><span>Melbourne appointments</span></div>
         </div>
