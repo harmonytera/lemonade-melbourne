@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>Lemonade Brows Melbourne — Full Redesign Preview</title>
-  <meta name="description" content="Full redesign preview for Lemonade Brows' Melbourne brow restoration visit, 5–7 November 2026.">
+  <title>Lemonade Brows Melbourne — 5–7 November 2026</title>
+  <meta name="description" content="Natural, restorative brow tattooing for mature women in Melbourne, 5–7 November 2026.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,600&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
@@ -91,18 +91,6 @@
     .skip { position: fixed; left: 1rem; top: -100px; z-index: 99; padding: .7rem 1rem; background: #fff; }
     .skip:focus { top: 1rem; }
 
-    .preview-bar {
-      background: #B9AA94;
-      color: var(--espresso);
-      padding: .5rem var(--gutter);
-      text-align: center;
-      font-family: var(--accent-font);
-      font-size: .66rem;
-      font-weight: 600;
-      letter-spacing: .13em;
-      line-height: 1.5;
-      text-transform: uppercase;
-    }
     .announce {
       background: var(--espresso);
       color: var(--on-dark);
@@ -147,7 +135,7 @@
     .on-dark .text-link { color: var(--on-dark); }
     .actions { display: flex; flex-wrap: wrap; align-items: center; gap: .95rem 1.35rem; }
 
-    .hero-stage { min-height: calc(100svh - 153px); display: flex; flex-direction: column; }
+    .hero-stage { min-height: calc(100svh - 121px); display: flex; flex-direction: column; }
     .hero { position: relative; overflow: hidden; flex: 1 1 auto; display: grid; align-items: center; padding: clamp(1.35rem, 3.4vh, 2.5rem) 0; }
     .hero::before {
       content: 'MELBOURNE';
@@ -198,10 +186,10 @@
     .section-heading h2 { max-width: 12ch; }
     .section-heading .lede { margin-top: 1.45rem; }
     .sticky { position: sticky; top: 2rem; }
-    .recognition { border-top: 1px solid var(--primary); }
-    .recognition-item { display: grid; grid-template-columns: 2rem 1fr; gap: 1rem; padding: 1.25rem 0; border-bottom: 1px solid var(--rule); }
+    .recognition-item { display: grid; grid-template-columns: 1.6rem 1fr; gap: .75rem; padding: .82rem 0; border-bottom: 1px solid var(--rule); }
+    .recognition-item:last-child { border-bottom: 0; }
     .recognition-item span { color: var(--primary-ink); font-family: var(--accent-font); font-size: .7rem; font-weight: 600; letter-spacing: .1em; }
-    .recognition-item p { color: var(--accent); line-height: 1.55; }
+    .recognition-item p { color: var(--accent); font-size: .9rem; line-height: 1.45; }
     .inline-cta { margin-top: 2rem; }
 
     .results-head { display: grid; grid-template-columns: 1fr .75fr; gap: clamp(2rem,6vw,5rem); align-items: end; margin-bottom: 2.4rem; }
@@ -357,7 +345,6 @@
 
     @media (max-width: 700px) {
       html { scroll-padding-top: 70px; }
-      .preview-bar { text-align: left; }
       .announce { font-size: .61rem; letter-spacing: .08em; }
       .announce .venue { display: none; }
       .header-inner { min-height: 68px; }
@@ -394,7 +381,7 @@
 
     @media (min-width: 961px) and (max-height: 820px) {
       .header-inner { min-height: 68px; }
-      .hero-stage { min-height: calc(100svh - 143px); }
+      .hero-stage { min-height: calc(100svh - 112px); }
       .hero { padding-block: 1.1rem; }
       .hero-grid { gap: 3.2rem; }
       .hero h1 { font-size: clamp(3.25rem,5vw,4.3rem); max-width: 10ch; }
@@ -413,8 +400,6 @@
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <div class="preview-bar">Full redesign preview — the current live homepage has not been replaced</div>
-
   <div class="announce">
     Melbourne <span>·</span> <b>5–7 November 2026</b>
     <span class="venue">· Upper Skin Clinic, Ivanhoe</span>
@@ -480,7 +465,6 @@
     <section class="block paper" id="for-you">
       <div class="wrap split">
         <div class="section-heading sticky">
-          <p class="eyebrow">This might be you</p>
           <h2>You don't want new brows. You want <span class="emphasis">your own back.</span></h2>
           <p class="lede">Most women who ring me say some version of the same thing: “I don't want to look done. I just want to stop thinking about my eyebrows.”</p>
           <div class="inline-cta"><a class="text-link" href="#enquire">Tell me what's happening with yours →</a></div>
