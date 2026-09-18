@@ -248,6 +248,22 @@
     .expertise-card h3 { margin: .85rem 0; font-size: 1.35rem; font-weight: 500; }
     .expertise-card p { color: var(--accent); font-size: .92rem; line-height: 1.55; }
 
+    #mature-brows { padding-block: clamp(3rem,4.8vw,4.4rem); }
+    #mature-brows .eyebrow { margin-bottom: .8rem; }
+    #mature-brows .eyebrow::before { display: none; }
+    #mature-brows .section-heading { display: grid; grid-template-columns: minmax(0,1.15fr) minmax(320px,.85fr); gap: clamp(2.5rem,6vw,5rem); align-items: end; }
+    #mature-brows .section-heading h2 { max-width: 16ch; font-size: clamp(2.15rem,3.6vw,3.35rem); }
+    #mature-brows .section-heading .eyebrow { grid-column: 1 / -1; }
+    #mature-brows .section-heading .lede { margin-top: 0; font-size: clamp(.96rem,.3vw + .92rem,1.06rem); line-height: 1.48; }
+    #mature-brows .comparison { margin-top: 1.8rem; }
+    #mature-brows .compare-panel { padding: clamp(1.25rem,2.3vw,1.8rem); }
+    #mature-brows .compare-panel h3 { margin: .45rem 0 .8rem; font-size: clamp(1.2rem,1.8vw,1.55rem); }
+    #mature-brows .compare-panel ul { gap: .45rem; }
+    #mature-brows .compare-panel li { font-size: .88rem; line-height: 1.42; }
+    #mature-brows .expertise-card { padding: clamp(1.1rem,2vw,1.45rem); }
+    #mature-brows .expertise-card h3 { margin: .5rem 0; font-size: 1.15rem; }
+    #mature-brows .expertise-card p { font-size: .84rem; line-height: 1.42; }
+
     .process-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: clamp(3rem,8vw,7rem); align-items: start; }
     .timeline { border-top: 1px solid var(--primary); }
     .timeline-item { display: grid; grid-template-columns: 3.2rem 1fr; gap: 1rem; padding: 1.35rem 0; border-bottom: 1px solid var(--rule); }
@@ -343,6 +359,8 @@
       .safety:nth-child(3) { border-left: 0; border-top: 1px solid rgba(214,195,169,.28); }
       .safety:nth-child(4) { border-top: 1px solid rgba(214,195,169,.28); }
       .expertise-grid { grid-template-columns: 1fr; }
+      #mature-brows .section-heading { grid-template-columns: 1fr; gap: 1.2rem; }
+      #mature-brows .section-heading .eyebrow { grid-column: auto; }
       .about-grid { grid-template-columns: .82fr 1.18fr; gap: 3rem; }
       .reviews { grid-template-columns: 1fr; }
       .review { min-height: 0; }
@@ -574,7 +592,7 @@
       </div>
     </section>
 
-    <section class="block soft">
+    <section class="block soft" id="mature-brows">
       <div class="wrap">
         <div class="section-heading">
           <p class="eyebrow">Why mature brows are different work</p>
