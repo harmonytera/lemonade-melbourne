@@ -83,6 +83,7 @@
       text-transform: uppercase;
     }
     .eyebrow::before { content: ''; width: 2.1rem; height: 1px; flex: 0 0 auto; background: currentColor; opacity: .58; }
+    .eyebrow.no-rule::before { display: none; }
     .on-dark .eyebrow { color: #D6C3A9; }
     .lede { color: var(--accent); font-size: clamp(1.08rem, .5vw + 1rem, 1.28rem); line-height: 1.55; }
     .on-dark .lede { color: var(--on-dark); }
@@ -693,34 +694,11 @@
       </div>
     </section>
 
-    <section class="block soft">
-      <div class="wrap">
-        <div class="section-heading">
-          <p class="eyebrow">When the situation needs extra care</p>
-          <h2>You don't need a simple brow problem to <span class="emphasis">start a conversation.</span></h2>
-        </div>
-        <div class="special-grid">
-          <article class="special-card">
-            <p class="small-label">Old brow tattoo</p>
-            <h3>It may be workable. I need to see it first.</h3>
-            <p>Previous tattoo doesn't automatically mean removal, and it doesn't automatically mean I can work over it. The remaining colour, saturation and shape decide that. Send a clear makeup-free photo and I'll tell you whether it is workable, needs fading first, or is better left alone.</p>
-            <div class="pullquote"><p>“She is very knowledgeable about older women's cosmetic needs.”</p><cite>Carolina Cepeda · Google review</cite></div>
-          </article>
-          <article class="special-card">
-            <p class="small-label">Alopecia, cancer treatment or medical loss</p>
-            <h3>When losing them was personal, the service has to be too.</h3>
-            <p>Timing, skin health and treatment history all matter. Sometimes I need clearance from your doctor; sometimes the right answer is “not yet”. Please still call. Even if I can't tattoo you now, I can explain what would need to be true before we reconsider.</p>
-            <div class="pullquote"><p>“I was a woman in my 50s with fair and minimal brows but lost them completely through chemo.”</p><cite>Angela Matheson · Google review</cite></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section class="block paper" id="questions">
       <div class="wrap faq-layout">
         <div class="section-heading sticky">
-          <p class="eyebrow">Questions</p>
-          <h2>The things women <span class="emphasis">actually ask me.</span></h2>
+          <p class="eyebrow no-rule">Frequently asked questions</p>
+          <h2>The things clients <span class="emphasis">actually ask me.</span></h2>
           <p class="lede">The awkward questions belong here too. If yours isn't answered, ask it on the free call.</p>
           <div class="inline-cta"><a class="button ghost" href="consultation.html">Ask me directly</a></div>
         </div>
