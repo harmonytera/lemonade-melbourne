@@ -183,6 +183,15 @@
     .proof-item strong { display: block; color: #fff; font-family: var(--heading); font-size: clamp(1.35rem,2vw,1.75rem); font-weight: 400; line-height: 1.1; letter-spacing: -.03em; }
     .proof-item span { color: var(--on-dark-muted); font-family: var(--accent-font); font-size: .59rem; line-height: 1.35; letter-spacing: .13em; text-transform: uppercase; }
 
+    .press-strip { background: #fff; }
+    .press-link { min-height: 112px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: clamp(1.25rem,4vw,3.5rem); padding-block: 1.25rem; color: var(--contrast); text-decoration: none; }
+    .press-logo { width: clamp(150px,18vw,210px); }
+    .press-copy { min-width: 0; }
+    .press-copy span { display: block; margin-bottom: .15rem; color: var(--primary-ink); font-family: var(--accent-font); font-size: .64rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; }
+    .press-copy strong { font-family: var(--heading); font-size: clamp(1rem,1.3vw,1.2rem); font-weight: 400; letter-spacing: -.015em; }
+    .press-cta { color: var(--primary-ink); font-family: var(--accent-font); font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; }
+    .press-link:hover .press-cta { color: var(--espresso); }
+
     section.block { padding: var(--section) 0; }
     .paper { background: var(--paper); }
     .soft { background: var(--background-soft); }
@@ -460,6 +469,10 @@
       .proof-grid { grid-template-columns: 1fr 1fr; gap: 1.1rem .4rem; }
       .proof-item { padding-left: .75rem; }
       .proof-item:nth-child(odd) { border-left: 0; padding-left: 0; }
+      .press-link { min-height: 0; grid-template-columns: 112px 1fr; gap: 1rem; padding-block: 1rem; }
+      .press-logo { width: 112px; }
+      .press-copy strong { font-size: .9rem; line-height: 1.35; }
+      .press-cta { grid-column: 2; font-size: .62rem; }
       section.block { padding: 4.2rem 0; }
       .gallery-track { grid-auto-columns: min(82vw, calc(100vw - (var(--gutter) * 2))); }
       .gallery-controls { align-items: flex-start; }
@@ -631,6 +644,14 @@
         </div>
       </section>
     </div>
+
+    <aside class="press-strip" aria-label="Professional Beauty feature">
+      <a class="wrap press-link" href="https://issuu.com/theintermediagroup/docs/professional_beauty_issue-3_2025/1?fr=sY2IwZTgzNDY2NjY" target="_blank" rel="noopener" aria-label="Read Harmony Tera's Project Salon feature in Professional Beauty magazine, pages 52 to 56">
+        <img class="press-logo" src="images/brand/professional-beauty-logo.webp" alt="Professional Beauty" width="400" height="200">
+        <span class="press-copy"><span>Featured in</span><strong>Harmony's Project Salon story</strong></span>
+        <span class="press-cta">Read the feature →</span>
+      </a>
+    </aside>
 
     <section class="block paper" id="for-you">
       <div class="wrap split">
@@ -874,7 +895,7 @@
             <div class="venue-fact"><dt>Where</dt><dd>Upper Skin Clinic<br>185 Upper Heidelberg Road<br>Ivanhoe VIC 3079</dd></div>
             <div class="venue-fact"><dt>Parking</dt><dd>Free three-hour parking outside Pinkie Cafe at 1 Westley Avenue, a short walk from the clinic.</dd></div>
           </dl>
-          <div class="inline-cta"><a class="button" href="https://www.google.com/maps/search/?api=1&query=185+Upper+Heidelberg+Road+Ivanhoe+VIC+3079" target="_blank" rel="noopener">Open in Google Maps</a></div>
+          <div class="inline-cta"><a class="button" href="https://maps.app.goo.gl/qqTAVeDYidyXZa8N6" target="_blank" rel="noopener">Open in Google Maps</a></div>
         </div>
         <div class="venue-dates" aria-label="Melbourne initial and perfecting appointment dates">
           <span class="small-label">Initial appointments</span>
