@@ -1087,3 +1087,27 @@ html, body { max-width: 100%; overflow-x: clip; }
   .sticky-cta .who { min-width: 0; font-size: .6rem; letter-spacing: .08em; }
   .sticky-cta .btn { max-width: 48%; padding: .78rem .8rem; font-size: .62rem; }
 }
+
+
+/* ---------- Announcement spacing ------------------------------------------ */
+.announce {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: .15rem .55rem;
+}
+.announce .announce-group {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .55rem;
+}
+.announce .announce-group .sep { margin-inline: 0; }
+
+@media (max-width: 720px) {
+  .announce { font-size: .61rem; letter-spacing: .08em; }
+  .announce-venue { display: none !important; }
+  .announce-availability { flex-basis: 100%; margin-top: .08rem; }
+  .announce-availability .sep { display: none; }
+}
