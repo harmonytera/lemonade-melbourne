@@ -43,9 +43,10 @@
     .emphasis { color: #D6C3A9; font-weight: 600; font-style: italic; }
     .skip { position: fixed; left: 1rem; top: -100px; z-index: 99; padding: .7rem 1rem; background: #fff; }
     .skip:focus { top: 1rem; }
-    .announce { padding: .72rem var(--gutter); background: var(--espresso); color: var(--on-dark); text-align: center; font-family: var(--accent-font); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; }
+    .announce { padding: .72rem var(--gutter); display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:.15rem .55rem; background: var(--espresso); color: var(--on-dark); text-align: center; font-family: var(--accent-font); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; }
     .announce b { color: #fff; }
-    .announce span { margin-inline: .62rem; color: var(--primary); }
+    .announce-group { display:inline-flex; align-items:center; justify-content:center; gap:.55rem; }
+    .announce .sep { color:var(--primary); }
     .site-header { position: sticky; top: 0; z-index: 20; background: rgba(235,234,223,.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
     .header-inner { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
     .wordmark { display: block; width: clamp(150px,15vw,190px); text-decoration: none; line-height: 1; }
@@ -122,7 +123,10 @@
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 580px) {
-      .announce .venue { display: none; }
+      .announce { font-size:.61rem; letter-spacing:.08em; }
+      .announce-venue { display:none; }
+      .announce-availability { flex-basis:100%; margin-top:.08rem; }
+      .announce-availability .sep { display:none; }
       .header-inner { min-height: 68px; }
       .nav .button { min-height: 42px; padding: .7rem .85rem; font-size: .62rem; }
       .form-grid, .choices { grid-template-columns: 1fr; }
@@ -138,9 +142,9 @@
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <div class="announce">
-    Melbourne <span>·</span> <b>5–7 November 2026</b>
-    <span class="venue">· Upper Skin Clinic, Ivanhoe</span>
-    <span>·</span> <b>11 of 12 appointments open</b>
+    <span class="announce-group announce-date"><span>Melbourne</span><span class="sep">·</span><b>5–7 November 2026</b></span>
+    <span class="announce-group announce-venue"><span class="sep">·</span><span>Upper Skin Clinic, Ivanhoe</span></span>
+    <span class="announce-group announce-availability"><span class="sep">·</span><b>11 of 12 appointments open</b></span>
   </div>
   <header class="site-header">
     <div class="wrap header-inner">
