@@ -182,12 +182,12 @@
 
         <div class="form-card">
           <h3>Request your free 15-minute call</h3>
-          <p>Enough detail for me to make the call useful. You are not committing to a treatment.</p>
+          <p>Enough detail for me to make the call useful. You are not committing to a treatment. When you finish, your email app will open with everything ready for you to review and send.</p>
           <p class="required-note"><span class="required-mark" aria-hidden="true">*</span> Required contact details</p>
           <form id="consult-form">
             <div class="form-grid">
-              <div class="field"><label for="preview-name">Full name <span class="required-mark" aria-hidden="true">*</span></label><input id="preview-name" name="name" type="text" autocomplete="name" required aria-required="true"></div>
-              <div class="field"><label for="preview-phone">Mobile <span class="required-mark" aria-hidden="true">*</span></label><input id="preview-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required aria-required="true"></div>
+              <div class="field"><label for="preview-name">Full name <span class="required-mark" aria-hidden="true">*</span></label><input id="preview-name" name="name" type="text" autocomplete="name" minlength="2" required aria-required="true"></div>
+              <div class="field"><label for="preview-phone">Mobile <span class="required-mark" aria-hidden="true">*</span></label><input id="preview-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" minlength="8" maxlength="20" required aria-required="true"></div>
               <div class="field full"><label for="preview-email">Email <span class="required-mark" aria-hidden="true">*</span></label><input id="preview-email" name="email" type="email" inputmode="email" autocomplete="email" required aria-required="true"></div>
               <fieldset class="field full">
                 <legend>What's happening with your brows?</legend>
@@ -201,7 +201,7 @@
               </fieldset>
               <div class="field full"><label for="preview-change">What would you most like to change?</label><textarea id="preview-change" name="change" placeholder="In your own words — there is no wrong answer."></textarea></div>
             </div>
-            <button class="button" type="submit">Request my free call</button>
+            <button class="button" type="submit">Prepare my consultation email</button>
             <p class="form-status" id="form-status" aria-live="polite"></p>
           </form>
         </div>
@@ -268,7 +268,29 @@
 
     document.getElementById('consult-form').addEventListener('submit', (event) => {
       event.preventDefault();
-      document.getElementById('form-status').textContent = 'This redesign is a preview, so the form is not connected yet.';
+      const form = event.currentTarget;
+      const data = new FormData(form);
+      const concerns = data.getAll('concern');
+      const name = String(data.get('name') || '').trim();
+      const phone = String(data.get('phone') || '').trim();
+      const email = String(data.get('email') || '').trim();
+      const change = String(data.get('change') || '').trim();
+      const subject = `Melbourne brow consultation request — ${name}`;
+      const body = [
+        'Hello Harmony,',
+        '',
+        'I would like to request a free 15-minute Melbourne brow consultation.',
+        '',
+        `Name: ${name}`,
+        `Mobile: ${phone}`,
+        `Email: ${email}`,
+        `What is happening with my brows: ${concerns.length ? concerns.join(', ') : 'Not specified'}`,
+        `What I would most like to change: ${change || 'Not specified'}`,
+        '',
+        'Please contact me to arrange the call.'
+      ].join('\n');
+      document.getElementById('form-status').textContent = 'Your email app is opening. Please review the message and press Send to complete your request.';
+      window.location.href = `mailto:excuseme@lemonadebrows.au?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
   </script>
 </body>
