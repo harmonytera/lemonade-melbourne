@@ -377,9 +377,17 @@
     .next-visit { display: flex; justify-content: space-between; gap: 2rem; align-items: center; margin-top: 2rem; padding: 1.3rem 0 0; border-top: 1px solid rgba(214,195,169,.35); }
     .next-visit p { color: var(--on-dark-muted); font-size: .88rem; }
 
-    footer { padding: 2.2rem 0; background: var(--espresso); border-top: 1px solid rgba(214,195,169,.2); color: var(--on-dark-muted); }
-    .footer-inner { display: flex; justify-content: space-between; gap: 2rem; align-items: center; font-family: var(--accent-font); font-size: .65rem; letter-spacing: .09em; text-transform: uppercase; }
-    .footer-inner a { text-underline-offset: .3rem; }
+    .site-footer { padding-block: clamp(2.5rem,5vw,3.5rem); background: var(--espresso); color: var(--on-dark-muted); font-size: .9rem; }
+    .site-footer a { color: var(--on-dark); text-decoration: none; }
+    .site-footer a:hover { color: #fff; text-decoration: underline; }
+    .site-footer .wordmark { width: auto; }
+    .site-footer .wordmark .name { display: block; color: #fff; font-family: var(--heading); font-size: 1.85rem; font-weight: 600; letter-spacing: -.015em; }
+    .site-footer .wordmark .sub { display: block; margin-top: .25rem; padding-left: .14em; color: var(--on-dark-muted); font-family: var(--accent-font); font-size: .5rem; letter-spacing: .34em; text-transform: uppercase; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,14rem),1fr)); gap: 2rem; }
+    .footer-grid p { max-width: none; margin-bottom: .5rem; }
+    .footer-grid strong { color: #fff; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; }
+    .footer-bottom { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(227,219,205,.2); color: var(--on-dark-muted); font-size: .82rem; line-height: 1.6; }
 
     @media (max-width: 960px) {
       .hero-stage { min-height: auto; display: block; }
@@ -436,7 +444,6 @@
       .appointment-clock { grid-template-columns: 1fr; }
       .form-grid { grid-template-columns: 1fr; }
       .field.full { grid-column: auto; }
-      .footer-inner { align-items: flex-start; flex-direction: column; }
     }
 
     @media (min-width: 961px) and (max-height: 820px) {
@@ -850,10 +857,32 @@
     </section>
   </main>
 
-  <footer>
-    <div class="wrap footer-inner">
-      <span>© 2026 Lemonade Cosmetic Brows · Harmony Tera</span>
-      <span><a href="index.html">Current homepage</a> · <a href="pricing.html">Pricing</a> · <a href="aftercare.html">Aftercare</a> · <a href="#main">Back to top</a></span>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="wordmark" href="index.html">
+            <span class="name">lemonade.</span>
+            <span class="sub">Cosmetic Brows</span>
+          </a>
+          <p style="margin-top:1rem;">Sydney specialist · visiting Melbourne</p>
+        </div>
+        <div>
+          <p><strong>Melbourne, 5–7 November 2026</strong></p>
+          <p>Upper Skin Clinic<br>185 Upper Heidelberg Road<br>Ivanhoe VIC 3079</p>
+        </div>
+        <div>
+          <p><a href="tel:+61414235274">0414 235 274</a></p>
+          <p><a href="mailto:excuseme@lemonadebrows.au">excuseme@lemonadebrows.au</a></p>
+          <div class="footer-links" style="margin-top:1rem;">
+            <a href="index.html">Home</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="https://www.lemonadebrows.au/">Main site</a>
+            <a href="https://www.instagram.com/lemonade.brows" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+      </div>
+      <p class="footer-bottom">© 2026 Lemonade Brows · Harmony Tera. Cosmetic tattooing suitability is assessed individually before treatment.</p>
     </div>
   </footer>
 
