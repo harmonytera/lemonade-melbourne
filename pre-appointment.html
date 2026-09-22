@@ -9,6 +9,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,300;1,400&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+  .guide-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin-top:2rem; }
+  .guide-card { padding:1.4rem; background:var(--bg-tint); border-top:2px solid var(--primary); }
+  .guide-card h3 { margin-bottom:.45rem; font-size:1.08rem; font-weight:500; }
+  .guide-card p { color:var(--accent); font-size:.94rem; line-height:1.55; }
+  .numbered-guide { counter-reset:guide; display:grid; gap:1rem; margin-top:2rem; }
+  .numbered-guide article { counter-increment:guide; display:grid; grid-template-columns:2.5rem 1fr; gap:1rem; padding:1.2rem 0; border-top:1px solid var(--rule); }
+  .numbered-guide article::before { content:counter(guide,decimal-leading-zero); color:var(--primary-ink); font-family:var(--font-acc); font-size:.72rem; font-weight:600; letter-spacing:.12em; padding-top:.2rem; }
+  .numbered-guide h3 { margin:0 0 .4rem; font-size:1.1rem; font-weight:500; }
+  .numbered-guide p { margin:0; }
+  .plain-list { margin:1rem 0 0; padding-left:1.2rem; }
+  .plain-list li + li { margin-top:.65rem; }
+  @media (max-width:680px) { .guide-grid { grid-template-columns:1fr; } }
+</style>
 </head>
 <body>
 
@@ -42,8 +56,8 @@
     <span class="eyebrow">Before your appointment</span>
     <h1>Everything to know before your brow appointment.</h1>
     <p class="lede">
-      A little preparation makes the day calmer and gives your skin the best chance to heal well.
-      Please read this before you come to Ivanhoe, and call me if anything is unclear.
+      This is the complete guide to preparing for your three-hour Melbourne appointment—what to
+      organise beforehand, what can affect treatment, where to park and exactly what happens on the day.
     </p>
     <div class="btn-row">
       <a class="text-link" href="aftercare.html">Read the aftercare guide <span class="arrow" aria-hidden="true">→</span></a>
@@ -55,69 +69,68 @@
 
 <section class="paper">
   <div class="wrap tight" style="margin-inline:auto;">
-    <span class="eyebrow">Preparing for the day</span>
-    <h2>Allow three unhurried hours.</h2>
-    <p>
-      Your appointment includes time for numbing, talking, mapping, checking the shape together
-      and completing the tattoo. Please avoid arranging anything immediately afterwards so neither
-      of us has to rush the decisions that matter.
-    </p>
+    <span class="eyebrow">The essentials</span>
+    <h2>The five things to know first.</h2>
+    <div class="guide-grid">
+      <article class="guide-card"><h3>Allow around three hours</h3><p>The tattoo itself usually takes around two to two-and-a-half hours. Your full appointment is longer because it includes numbing, consultation, mapping and careful checking.</p></article>
+      <article class="guide-card"><h3>Complete your forms early</h3><p>Your consultation and medical forms need to be returned at least seven days beforehand so your suitability can be assessed and your compounded numbing cream arranged.</p></article>
+      <article class="guide-card"><h3>Arrive with bare brows</h3><p>Please avoid makeup and skincare on the brow area. If you are coming from work or another appointment, I can help you remove it when you arrive.</p></article>
+      <article class="guide-card"><h3>Tell me about previous tattooing</h3><p>Even very faded pigment can affect the technique, colour and shape available to us. Send clear photographs before the appointment if we have not already discussed it.</p></article>
+      <article class="guide-card"><h3>Your deposit secures both stages</h3><p>The $1,100 package includes your first appointment in November and your six-week perfecting appointment in Melbourne on <strong>17–19 December 2026</strong>.</p></article>
+      <article class="guide-card"><h3>Nothing starts without your approval</h3><p>We draw, check and adjust the proposed shape together. Tattooing only begins once you are comfortable with the design.</p></article>
+    </div>
 
     <h3 style="margin-top:3rem;">Your preparation timeline</h3>
     <table class="heal">
       <thead><tr><th scope="col">When</th><th scope="col">What to do</th></tr></thead>
       <tbody>
         <tr><th scope="row">At least 7 days before</th><td>Return your medical and consultation forms so your suitability can be checked and your numbing cream can be prepared by the pharmacist.</td></tr>
-        <tr><th scope="row">48 hours before</th><td>Review anything that may affect bleeding or healing. Do not stop prescribed medication unless the clinician who prescribed it has told you it is safe.</td></tr>
+        <tr><th scope="row">As soon as possible</th><td>Tell me about previous brow tattooing, allergies, skin conditions, significant medical history and every medication or supplement you take.</td></tr>
+        <tr><th scope="row">48 hours before</th><td>Review anything that may affect bleeding or healing. Never stop prescribed medication unless the clinician who prescribed it has told you it is safe.</td></tr>
         <tr><th scope="row">24 hours before</th><td>Avoid alcohol.</td></tr>
         <tr><th scope="row">3 hours before</th><td>Avoid caffeine, including coffee, tea, cola and energy drinks.</td></tr>
         <tr><th scope="row">When you arrive</th><td>Come without makeup or skincare on the brow area. If that is not practical, I can help you remove it at the clinic.</td></tr>
       </tbody>
     </table>
 
-    <div class="callout">
-      <span class="label">Numbing cream</span>
-      <p>
-        Unless I have given you different instructions, your numbing cream will be applied at the
-        clinic. If I have arranged for you to apply it before arrival, follow the instructions sent
-        directly to you. The pharmacist may contact you if they need to clarify anything in your
-        medical form.
-      </p>
-    </div>
+    <div class="callout"><span class="label">Please do not squeeze another appointment in afterwards</span><p>The work is deliberate and collaborative. Keeping the three-hour window clear means neither of us has to hurry your mapping, colour choice or final checks.</p></div>
   </div>
 </section>
 
 <section class="cream">
   <div class="wrap tight" style="margin-inline:auto;">
-    <span class="eyebrow">Health and medications</span>
-    <h2>Please tell me anything that could affect your skin or healing.</h2>
-    <p>
-      Your forms are there to keep you safe, not to judge whether your medical history is “too
-      complicated”. Please include prescribed and non-prescribed medication, previous brow tattoo,
-      allergies, active skin conditions and any recent or current medical treatment.
-    </p>
-    <div class="todo">
-      <span class="label">Make sure I know about</span>
-      <ul>
-        <li>Blood-thinning medication or a condition that affects bleeding or clotting</li>
-        <li>Current or recent cancer treatment</li>
-        <li>Accutane or other medication that strongly affects the skin</li>
-        <li>Eczema, dermatitis, infection, broken skin or irritation around the brows</li>
-        <li>Previous brow tattooing, even if it now looks very faint</li>
-      </ul>
-    </div>
-    <p>
-      If you are unsure whether something matters, include it. I may ask you to speak with your
-      doctor or obtain clearance. Never stop medication or treatment without speaking to the
-      clinician responsible for it.
-    </p>
+    <span class="eyebrow">Numbing and medical forms</span>
+    <h2>Your cream is prepared for you—not taken from a generic pot.</h2>
+    <p>Your numbing cream is specially compounded by a pharmacist. That is why the medical and consultation forms need to be completed at least seven days before your appointment: the pharmacist reviews the relevant history and prepares a cream that is suitable for you.</p>
+    <p>If they need clarification, the pharmacist may contact you directly. That is normal and simply allows them to make a safe decision. If your appointment is less than seven days away and the forms are not complete, call me rather than guessing what to do.</p>
+    <div class="callout"><span class="label">When it is applied</span><p>For most appointments, I apply the numbing cream when you arrive and allow time for it to work. If you have the first appointment of the day and we have arranged home application or collection beforehand, follow the instructions sent specifically to you. If we have not arranged that, do not apply anything yourself.</p></div>
   </div>
 </section>
 
 <section class="paper">
   <div class="wrap tight" style="margin-inline:auto;">
+    <span class="eyebrow">Health and medications</span>
+    <h2>Please tell me anything that could affect bleeding, skin or healing.</h2>
+    <p>Your forms are there to keep you safe—not to decide that your medical history is “too complicated”. Include prescribed and non-prescribed medication, supplements, allergies, previous cosmetic tattooing, active skin conditions and any recent or current medical treatment.</p>
+    <div class="todo">
+      <span class="label">Make sure I know about</span>
+      <ul>
+        <li>Blood-thinning medication or a condition that affects bleeding or clotting</li>
+        <li>Current or recent cancer treatment</li>
+        <li>Accutane or any other medication that strongly affects the skin</li>
+        <li>Eczema, dermatitis, infection, broken skin or irritation around the brows</li>
+        <li>Previous brow tattooing, even if it now looks very faint</li>
+      </ul>
+    </div>
+    <p>If you are unsure whether something matters, include it. I may ask you to speak with your doctor or obtain clearance. Never stop medication or treatment without speaking to the clinician responsible for it.</p>
+    <div class="callout"><span class="label">Why the preparation matters</span><p>Alcohol, caffeine and anything that increases bleeding can make the skin harder to work with and may affect how evenly pigment is placed. Avoid alcohol for 24 hours and caffeine for the three hours before your appointment. Follow your doctor’s advice—not internet advice—about prescribed medication.</p></div>
+  </div>
+</section>
+
+<section class="cream">
+  <div class="wrap tight" style="margin-inline:auto;">
     <span class="eyebrow">Your Melbourne appointment</span>
-    <h2>Upper Skin Clinic, Ivanhoe.</h2>
+    <h2>Getting to Upper Skin Clinic, Ivanhoe.</h2>
     <p><strong>185 Upper Heidelberg Road, Ivanhoe VIC 3079</strong></p>
     <p>
       There is one-hour street parking directly outside the clinic on Upper Heidelberg Road.
@@ -129,35 +142,49 @@
       <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=185+Upper+Heidelberg+Road+Ivanhoe+VIC+3079" target="_blank" rel="noopener">Open in Google Maps</a>
     </div>
 
-    <div class="callout">
-      <span class="label">Your booking</span>
-      <p>
-        Your $550 deposit secures the appointment. You may cancel for a refund or move the deposit
-        until 21 October. After that it is non-refundable unless I can fill your time. If your forms
-        were returned on time and screening shows that tattooing is not suitable, your deposit is
-        returned.
-      </p>
+    <div class="guide-grid">
+      <article class="guide-card"><h3>Directly outside</h3><p>There is one-hour street parking on Upper Heidelberg Road. It is useful for a quick visit but not long enough for your full brow appointment.</p></article>
+      <article class="guide-card"><h3>Best for the full appointment</h3><p>Use the free three-hour parking outside Pinkie Cafe at <strong>1 Westley Avenue</strong>. It is a short walk back to the clinic and saves you moving the car mid-appointment.</p></article>
+    </div>
+    <div class="callout"><span class="label">If you have trouble finding us</span><p>Call or text me on <a href="tel:+61414235274">0414 235 274</a>. Please allow a little arrival time so parking does not make the start of your appointment feel rushed.</p></div>
+  </div>
+</section>
+
+<section class="paper">
+  <div class="wrap tight" style="margin-inline:auto;">
+    <span class="eyebrow">What happens on the day</span>
+    <h2>Nothing permanent begins until you approve the drawing.</h2>
+    <div class="numbered-guide">
+      <article><div><h3>We talk and reassess</h3><p>We review your forms, skin, existing brow hair, previous tattooing, concerns and the outcome you want. I confirm the most suitable technique and answer anything that still feels unclear.</p></div></article>
+      <article><div><h3>Your numbing cream takes effect</h3><p>The cream is usually applied on arrival and left to work while we talk. You may still feel mild sensation during tattooing, but the aim is to keep the appointment comfortable.</p></div></article>
+      <article><div><h3>We map the design together</h3><p>I draw the brows using your facial features, bone structure, natural hair and asymmetry. We sit you up, look in the mirror and adjust the drawing until it feels like you.</p></div></article>
+      <article><div><h3>We document your starting point</h3><p>I take before and after photographs so we can accurately compare the work and healing. They are only used publicly for the website, social media or emails with your consent.</p></div></article>
+      <article><div><h3>The tattoo is built gradually</h3><p>Once you approve the mapped shape, I deposit pigment within that design. I continually check the shape and symmetry, sit you upright and make small adjustments as needed.</p></div></article>
+      <article><div><h3>You leave knowing exactly what comes next</h3><p>I apply the aftercare product, explain the healing stages and give you written instructions. You will know what is normal, what to avoid and how to contact me if you are worried.</p></div></article>
     </div>
   </div>
 </section>
 
 <section class="cream">
   <div class="wrap tight" style="margin-inline:auto;">
-    <span class="eyebrow">What happens on the day</span>
-    <h2>Nothing permanent begins until you approve the drawing.</h2>
-    <table class="heal">
-      <tbody>
-        <tr><th scope="row">Numbing and talking</th><td>We reassess your skin, health, concerns and the most suitable technique while the cream takes effect.</td></tr>
-        <tr><th scope="row">Mapping and design</th><td>I draw the shape and we adjust it together in the mirror until it feels right on your face.</td></tr>
-        <tr><th scope="row">Photographs</th><td>I photograph your brows before and after to record the work. Public use only happens with your consent.</td></tr>
-        <tr><th scope="row">Tattooing</th><td>The pigment is built gradually. I sit you up and reassess the balance as I work.</td></tr>
-        <tr><th scope="row">Before you leave</th><td>I apply aftercare, explain the healing stages and make sure you know what to do at home.</td></tr>
-      </tbody>
-    </table>
-    <p style="margin-top:2rem;">
-      You are welcome to bring photographs of brows you like, brows you do not like, or yourself
-      when you were younger. They help me understand your taste; they are never used as a template.
-    </p>
+    <span class="eyebrow">What to bring</span>
+    <h2>Bring references that help me understand you.</h2>
+    <p>You are welcome to bring photographs of brows you like, brows you definitely do not like, or photographs of yourself before your brows thinned. If your brow loss followed years of overplucking, an old photograph can be particularly helpful.</p>
+    <p>You can even bring a photograph of a close family member if you believe their natural brows show what yours may have looked like without hair loss. References help me understand your taste and history; they are never copied as a template onto your face.</p>
+    <div class="guide-grid">
+      <article class="guide-card"><h3>Wear what feels comfortable</h3><p>You will be lying down for part of the appointment and sitting up repeatedly while I check the balance. Comfortable clothing makes the three-hour visit easier.</p></article>
+      <article class="guide-card"><h3>Yes, there is a bathroom</h3><p>You do not need to worry about making it through a long appointment without facilities. And yes—there will be lemon lollies, courtesy of my mum.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="paper">
+  <div class="wrap tight" style="margin-inline:auto;">
+    <span class="eyebrow">Your booking and second appointment</span>
+    <h2>Your restoration is planned as two appointments.</h2>
+    <p>Your $550 deposit secures your November appointment. The remaining $550 is paid on the day. Your six-week perfecting appointment is included in the package and takes place in Melbourne on <strong>17–19 December 2026</strong>.</p>
+    <p>You may cancel for a refund or move your deposit until <strong>21 October 2026</strong>. After that, the deposit is non-refundable unless I can fill your appointment. If you returned your forms on time and the screening process shows that cosmetic tattooing is not suitable for you, your deposit is returned.</p>
+    <div class="callout"><span class="label">Why the forms cannot wait until the day</span><p>Screening in advance protects your safety and your travel plans. It also means we are not discovering a preventable contraindication after you have arrived at the clinic.</p></div>
   </div>
 </section>
 
@@ -184,19 +211,16 @@
         <p class="footer-copyright">© 2026 Lemonade Brows</p>
       </div>
       <div class="footer-column">
-        <p class="footer-label">Melbourne visit</p>
         <p><strong>Melbourne, 5–7 November 2026</strong></p>
         <p>Upper Skin Clinic<br>185 Upper Heidelberg Road<br>Ivanhoe VIC 3079</p>
       </div>
       <div class="footer-column">
-        <p class="footer-label">Client information</p>
         <div class="footer-resource-links">
           <a href="pre-appointment.html">Pre-Appointment</a>
           <a href="aftercare.html">Aftercare</a>
         </div>
       </div>
       <div class="footer-column">
-        <p class="footer-label">Contact</p>
         <p><a href="tel:+61414235274">0414 235 274</a></p>
         <p><a href="mailto:excuseme@lemonadebrows.au">excuseme@lemonadebrows.au</a></p>
         <div class="social-links" aria-label="Social media">
