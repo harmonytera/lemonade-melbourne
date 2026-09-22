@@ -83,27 +83,38 @@
     .next-visit { display: flex; justify-content: space-between; gap: 2rem; align-items: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(214,195,169,.25); }
     .next-visit p { color: var(--on-dark-muted); font-size: .9rem; }
     .text-link { color: var(--on-dark); font-family: var(--accent-font); font-size: .75rem; letter-spacing: .08em; text-underline-offset: .35rem; text-transform: uppercase; }
-    .site-footer { padding-block: clamp(2.5rem,5vw,3.5rem); background: var(--cocoa); color: var(--on-dark-muted); font-size: .9rem; }
+    .site-footer { padding-block: clamp(2.5rem,5vw,3.5rem); background: var(--espresso); color: var(--on-dark-muted); font-size: .9rem; }
     .site-footer a { color: var(--on-dark); text-decoration: none; }
     .site-footer a:hover { color: #fff; text-decoration: underline; }
     .site-footer .wordmark { width: clamp(155px,18vw,210px); }
     .site-footer .wordmark img { width: 100%; filter: invert(1); }
-    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,14rem),1fr)); gap: 2rem; }
+    .footer-grid { display: grid; grid-template-columns: 1.15fr 1fr .85fr 1fr; gap: clamp(2rem,4vw,4rem); align-items: stretch; }
+    .footer-column { min-height: 150px; display: flex; flex-direction: column; }
     .footer-grid p { max-width: none; margin-bottom: .5rem; }
     .footer-grid strong { color: #fff; }
-    .footer-links { display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; }
-    .footer-bottom { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(227,219,205,.2); color: var(--on-dark-muted); font-size: .82rem; }
+    .footer-label { color: #D6C3A9; font-family: var(--accent-font); font-size: .64rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
+    .footer-brand > p:not(.footer-copyright) { margin-top: 1rem; }
+    .footer-copyright { margin-top: auto; padding-top: 1.3rem; color: var(--on-dark-muted); font-size: .76rem; }
+    .footer-resource-links { display: grid; gap: .55rem; margin-top: .35rem; }
+    .social-links { display: flex; gap: .6rem; margin-top: auto; padding-top: 1rem; }
+    .social-link { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(227,219,205,.28); }
+    .social-link:hover { border-color: #fff; text-decoration: none !important; }
+    .social-link svg { width: 18px; height: 18px; }
     @media (max-width: 820px) {
       .enquiry-grid { grid-template-columns: 1fr; }
       .enquiry-copy { position: static; }
       .nav a:not(.button) { display: none; }
       .next-visit { display: grid; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 580px) {
       .announce .venue { display: none; }
       .header-inner { min-height: 68px; }
       .nav .button { min-height: 42px; padding: .7rem .85rem; font-size: .62rem; }
       .form-grid, .choices { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-column { min-height: 0; }
+      .footer-copyright, .social-links { margin-top: 1rem; }
     }
   </style>
 </head>
@@ -178,28 +189,35 @@
   <footer class="site-footer">
     <div class="wrap">
       <div class="footer-grid">
-        <div>
+        <div class="footer-column footer-brand">
           <a class="wordmark" href="index.html" aria-label="Lemonade Brows Melbourne home">
             <img src="images/brand/lemonade-logo-black.png" alt="Lemonade Cosmetic Brows" width="758" height="278">
           </a>
-          <p style="margin-top:1rem;">Sydney specialist · visiting Melbourne</p>
+          <p>Sydney specialist · visiting Melbourne</p>
+          <p class="footer-copyright">© 2026 Lemonade Brows</p>
         </div>
-        <div>
+        <div class="footer-column">
+          <p class="footer-label">Melbourne visit</p>
           <p><strong>Melbourne, 5–7 November 2026</strong></p>
           <p>Upper Skin Clinic<br>185 Upper Heidelberg Road<br>Ivanhoe VIC 3079</p>
         </div>
-        <div>
+        <div class="footer-column">
+          <p class="footer-label">Client information</p>
+          <div class="footer-resource-links">
+            <a href="https://www.lemonadebrows.au/pre-appointment" target="_blank" rel="noopener">Pre-Appointment</a>
+            <a href="aftercare.html">Aftercare</a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <p class="footer-label">Contact</p>
           <p><a href="tel:+61414235274">0414 235 274</a></p>
           <p><a href="mailto:excuseme@lemonadebrows.au">excuseme@lemonadebrows.au</a></p>
-          <div class="footer-links" style="margin-top:1rem;">
-            <a href="index.html">Home</a>
-            <a href="aftercare.html">Aftercare</a>
-            <a href="https://www.lemonadebrows.au/">Main site</a>
-            <a href="https://www.instagram.com/lemonade.brows" target="_blank" rel="noopener">Instagram</a>
+          <div class="social-links" aria-label="Social media">
+            <a class="social-link" href="https://www.instagram.com/lemonade.brows" target="_blank" rel="noopener" aria-label="Lemonade Brows on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg></a>
+            <a class="social-link" href="https://www.facebook.com/p/LemonadeBrows-61559657100079/" target="_blank" rel="noopener" aria-label="Lemonade Brows on Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.8l.4-3h-3.2V8.1c0-.9.3-1.5 1.6-1.5h1.7V3.9c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1V10H7.7v3h2.7v8h3.1z"></path></svg></a>
           </div>
         </div>
       </div>
-      <p class="footer-bottom">© 2026 Lemonade Brows</p>
     </div>
   </footer>
 
