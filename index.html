@@ -338,10 +338,10 @@
     details[open] summary::after { content: '–'; }
     .answer { padding: 0 2rem 1.25rem 0; color: var(--accent); font-size: .92rem; line-height: 1.6; }
 
-    #venue { padding-block: clamp(3.5rem,5.5vw,5.5rem); background: #fff; color: var(--contrast); }
+    #venue { padding: clamp(2rem,3.5vw,3.25rem) 0 clamp(3.5rem,5.5vw,5.5rem); background: #fff; color: var(--contrast); }
     .venue-grid { display: grid; grid-template-columns: minmax(0,1.18fr) minmax(320px,.82fr); gap: clamp(3rem,7vw,6rem); align-items: center; }
     .venue-copy { display: flex; flex-direction: column; justify-content: center; }
-    .venue-logo { width: min(390px,78%); margin: 0 0 2rem; padding: 0; background: transparent; }
+    .venue-logo { width: min(390px,78%); margin: 2.5rem 0 0 auto; padding: 0; background: transparent; }
     .venue-copy h2 { max-width: 14ch; font-size: clamp(2.25rem,4vw,3.7rem); }
     .venue-facts { margin-top: 1.7rem; border-top: 1px solid var(--rule); }
     .venue-fact { display: grid; grid-template-columns: 90px 1fr; gap: 1.2rem; padding: .95rem 0; border-bottom: 1px solid var(--rule); }
@@ -383,16 +383,25 @@
     .site-footer a:hover { color: #fff; text-decoration: underline; }
     .site-footer .wordmark { width: clamp(155px,18vw,210px); }
     .site-footer .wordmark img { width: 100%; filter: invert(1); }
-    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,14rem),1fr)); gap: 2rem; }
+    .footer-grid { display: grid; grid-template-columns: 1.15fr 1fr .85fr 1fr; gap: clamp(2rem,4vw,4rem); align-items: stretch; }
+    .footer-column { min-height: 150px; display: flex; flex-direction: column; }
     .footer-grid p { max-width: none; margin-bottom: .5rem; }
     .footer-grid strong { color: #fff; }
-    .footer-links { display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; }
-    .footer-bottom { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(227,219,205,.2); color: var(--on-dark-muted); font-size: .82rem; line-height: 1.6; }
+    .footer-label { color: #D6C3A9; font-family: var(--accent-font); font-size: .64rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
+    .footer-brand > p:not(.footer-copyright) { margin-top: 1rem; }
+    .footer-copyright { margin-top: auto; padding-top: 1.3rem; color: var(--on-dark-muted); font-size: .76rem; }
+    .footer-resource-links { display: grid; gap: .55rem; margin-top: .35rem; }
+    .social-links { display: flex; gap: .6rem; margin-top: auto; padding-top: 1rem; }
+    .social-link { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(227,219,205,.28); }
+    .social-link:hover { border-color: #fff; text-decoration: none !important; }
+    .social-link svg { width: 18px; height: 18px; }
 
     @media (max-width: 960px) {
       .hero-stage { min-height: auto; display: block; }
       .hero-grid, .split, .split.reverse, .process-grid, .faq-layout, .venue-grid, .enquiry-grid { grid-template-columns: 1fr; }
       .venue-dates { text-align: left; }
+      .venue-logo { margin-left: 0; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
       .hero { min-height: auto; }
       .portrait-wrap { width: min(610px,100%); margin-inline: auto; }
       .sticky { position: static; }
@@ -443,6 +452,9 @@
       .appointment-clock { grid-template-columns: 1fr; }
       .form-grid { grid-template-columns: 1fr; }
       .field.full { grid-column: auto; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-column { min-height: 0; }
+      .footer-copyright, .social-links { margin-top: 1rem; }
     }
 
     @media (min-width: 961px) and (max-height: 820px) {
@@ -728,7 +740,6 @@
     <section class="block paper" id="venue">
       <div class="wrap venue-grid">
         <div class="venue-copy">
-          <img class="venue-logo" src="images/brand/upper-skin-clinic-ivanhoe.webp" alt="Upper Skin Clinic Ivanhoe" loading="lazy" width="900" height="262">
           <h2>Melbourne appointments at <span class="emphasis">Upper Skin Clinic.</span></h2>
           <dl class="venue-facts">
             <div class="venue-fact"><dt>Where</dt><dd>Upper Skin Clinic<br>185 Upper Heidelberg Road<br>Ivanhoe VIC 3079</dd></div>
@@ -740,6 +751,7 @@
           <span class="small-label">Initial appointments</span>
           <div class="venue-date">5–7<span>November 2026</span></div>
           <div class="perfecting-date"><span>Perfecting session</span><strong>17–19 December 2026</strong></div>
+          <img class="venue-logo" src="images/brand/upper-skin-clinic-ivanhoe.webp" alt="Upper Skin Clinic Ivanhoe" loading="lazy" width="900" height="262">
         </div>
       </div>
     </section>
@@ -749,28 +761,35 @@
   <footer class="site-footer">
     <div class="wrap">
       <div class="footer-grid">
-        <div>
+        <div class="footer-column footer-brand">
           <a class="wordmark" href="index.html" aria-label="Lemonade Brows home">
             <img src="images/brand/lemonade-logo-black.png" alt="Lemonade Cosmetic Brows" width="758" height="278">
           </a>
-          <p style="margin-top:1rem;">Sydney specialist · visiting Melbourne</p>
+          <p>Sydney specialist · visiting Melbourne</p>
+          <p class="footer-copyright">© 2026 Lemonade Brows</p>
         </div>
-        <div>
+        <div class="footer-column">
+          <p class="footer-label">Melbourne visit</p>
           <p><strong>Melbourne, 5–7 November 2026</strong></p>
           <p>Upper Skin Clinic<br>185 Upper Heidelberg Road<br>Ivanhoe VIC 3079</p>
         </div>
-        <div>
+        <div class="footer-column">
+          <p class="footer-label">Client information</p>
+          <div class="footer-resource-links">
+            <a href="https://www.lemonadebrows.au/pre-appointment" target="_blank" rel="noopener">Pre-Appointment</a>
+            <a href="aftercare.html">Aftercare</a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <p class="footer-label">Contact</p>
           <p><a href="tel:+61414235274">0414 235 274</a></p>
           <p><a href="mailto:excuseme@lemonadebrows.au">excuseme@lemonadebrows.au</a></p>
-          <div class="footer-links" style="margin-top:1rem;">
-            <a href="index.html">Home</a>
-            <a href="aftercare.html">Aftercare</a>
-            <a href="https://www.lemonadebrows.au/">Main site</a>
-            <a href="https://www.instagram.com/lemonade.brows" target="_blank" rel="noopener">Instagram</a>
+          <div class="social-links" aria-label="Social media">
+            <a class="social-link" href="https://www.instagram.com/lemonade.brows" target="_blank" rel="noopener" aria-label="Lemonade Brows on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg></a>
+            <a class="social-link" href="https://www.facebook.com/p/LemonadeBrows-61559657100079/" target="_blank" rel="noopener" aria-label="Lemonade Brows on Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.8l.4-3h-3.2V8.1c0-.9.3-1.5 1.6-1.5h1.7V3.9c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1V10H7.7v3h2.7v8h3.1z"></path></svg></a>
           </div>
         </div>
       </div>
-      <p class="footer-bottom">© 2026 Lemonade Brows</p>
     </div>
   </footer>
 
