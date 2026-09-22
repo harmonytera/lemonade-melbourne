@@ -98,6 +98,11 @@
       background: var(--espresso);
       color: var(--on-dark);
       padding: .72rem var(--gutter);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: .15rem .55rem;
       text-align: center;
       font-family: var(--accent-font);
       font-size: .7rem;
@@ -105,7 +110,8 @@
       text-transform: uppercase;
     }
     .announce b { color: #fff; }
-    .announce span { margin-inline: .62rem; color: var(--primary); }
+    .announce-group { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; }
+    .announce .sep { color: var(--primary); }
     .site-header { position: sticky; top: 0; z-index: 20; background: rgba(235,234,223,.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
     .header-inner { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
     .wordmark { display: block; width: clamp(150px, 15vw, 190px); text-decoration: none; line-height: 1; }
@@ -424,7 +430,9 @@
     @media (max-width: 700px) {
       html { scroll-padding-top: 70px; }
       .announce { font-size: .61rem; letter-spacing: .08em; }
-      .announce .venue { display: none; }
+      .announce-venue { display: none; }
+      .announce-availability { flex-basis: 100%; margin-top: .08rem; }
+      .announce-availability .sep { display: none; }
       .header-inner { min-height: 68px; position: relative; }
       .nav-toggle { width: 44px; height: 44px; padding: 0; border: 0; background: transparent; color: var(--contrast); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; flex: 0 0 auto; }
       .nav-toggle-icon { width: 23px; height: 16px; position: relative; display: block; }
@@ -493,9 +501,9 @@
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <div class="announce">
-    Melbourne <span>·</span> <b>5–7 November 2026</b>
-    <span class="venue">· Upper Skin Clinic, Ivanhoe</span>
-    <span>·</span> <b>11 of 12 appointments open</b>
+    <span class="announce-group announce-date"><span>Melbourne</span><span class="sep">·</span><b>5–7 November 2026</b></span>
+    <span class="announce-group announce-venue"><span class="sep">·</span><span>Upper Skin Clinic, Ivanhoe</span></span>
+    <span class="announce-group announce-availability"><span class="sep">·</span><b>11 of 12 appointments open</b></span>
   </div>
 
   <header class="site-header">
