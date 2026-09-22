@@ -299,10 +299,16 @@
     #process .clock-part h4 { margin: .38rem 0; font-size: 1rem; }
     #process .clock-part p { font-size: .82rem; line-height: 1.38; }
 
-    .about-grid { display: grid; grid-template-columns: minmax(290px,.78fr) 1.22fr; gap: clamp(3rem,8vw,7rem); align-items: center; }
-    .about-photo { position: relative; }
-    .about-photo img { aspect-ratio: 4/5; object-fit: cover; }
+    #about { padding-block: clamp(3.5rem,5.5vw,5.5rem); }
+    .about-grid { display: grid; grid-template-columns: minmax(320px,.9fr) minmax(0,1.1fr); gap: clamp(2.5rem,6vw,5rem); align-items: stretch; }
+    .about-photo { position: relative; min-height: 100%; margin: 0; }
+    .about-photo img { height: 100%; object-fit: cover; object-position: center; }
     .about-photo::after { content: 'Harmony Tera · founder'; position: absolute; right: -1rem; bottom: -1rem; padding: .7rem 1rem; background: var(--paper); font-family: var(--accent-font); font-size: .64rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+    #about .section-heading { display: flex; flex-direction: column; justify-content: center; padding-block: .8rem; }
+    #about .section-heading h2 { max-width: 14ch; font-size: clamp(2.2rem,3.8vw,3.55rem); }
+    #about .section-heading .lede { margin-top: 1.15rem; }
+    #about .section-heading > p:not(.lede):not(.signature) { font-size: .95rem; line-height: 1.55; }
+    #about .section-heading > p + p { margin-top: .8rem; }
     .signature { margin-top: 1.3rem; color: var(--primary-ink); font-family: var(--heading); font-size: 1.5rem; font-style: italic; }
     .credentials { display: flex; flex-wrap: wrap; gap: .55rem; margin: 1.6rem 0 0; padding: 0; list-style: none; }
     .credentials li { padding: .52rem .7rem; border: 1px solid var(--rule); font-family: var(--accent-font); font-size: .62rem; letter-spacing: .09em; text-transform: uppercase; }
@@ -412,6 +418,7 @@
       .gallery-track { grid-auto-columns: 82vw; }
       .gallery-controls { align-items: flex-start; }
       .comparison, .special-grid, .about-grid { grid-template-columns: 1fr; }
+      .about-photo img { height: auto; aspect-ratio: 4/5; }
       .value-line { grid-template-columns: 1.6rem 1fr; }
       .value-line .included { grid-column: 2; }
       .offer-foot, .next-visit { align-items: flex-start; flex-direction: column; }
@@ -681,7 +688,6 @@
           <img src="images/brand/harmony-1.webp" alt="Harmony Tera in her Sydney clinic" loading="lazy" width="900" height="1125">
         </figure>
         <div class="section-heading">
-          <p class="eyebrow">Why I'm making the trip</p>
           <h2>I built my practice around women in <span class="emphasis">exactly your position.</span></h2>
           <p class="lede">Twenty years in beauty and aesthetics, and these days I do almost nothing but mature and restorative brows.</p>
           <p>That wasn't a marketing decision. It happened because women over 40 and 50 kept arriving with the same concerns: they had lost part or all of their brows, they were frightened of looking fake, and most of what they saw online wasn't designed for them.</p>
