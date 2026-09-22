@@ -337,16 +337,19 @@
     details[open] summary::after { content: '–'; }
     .answer { padding: 0 2rem 1.25rem 0; color: var(--accent); font-size: .92rem; line-height: 1.6; }
 
-    .venue-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem,8vw,7rem); align-items: center; }
-    .venue-image { position: relative; min-height: 430px; display: flex; flex-direction: column; justify-content: space-between; padding: clamp(1.8rem,5vw,3.5rem); overflow: hidden; background: var(--primary); color: #fff; }
-    .venue-image::after { content: 'IVANHOE'; position: absolute; left: -1rem; bottom: -1.5rem; color: rgba(255,255,255,.12); font-family: var(--heading); font-size: clamp(5rem,12vw,9rem); font-weight: 600; letter-spacing: -.07em; line-height: .8; white-space: nowrap; }
-    .venue-image .venue-date { position: relative; z-index: 1; font-family: var(--heading); font-size: clamp(3.4rem,7vw,6.3rem); font-weight: 300; line-height: .92; letter-spacing: -.06em; }
-    .venue-image .venue-address { position: relative; z-index: 1; max-width: 22rem; font-family: var(--accent-font); font-size: .74rem; font-weight: 600; letter-spacing: .13em; line-height: 1.7; text-transform: uppercase; }
-    .venue-logo { width: min(330px,84%); margin-bottom: 2rem; padding: .9rem 1rem; background: var(--paper); }
-    .venue-facts { margin-top: 2rem; border-top: 1px solid rgba(214,195,169,.45); }
-    .venue-fact { display: grid; grid-template-columns: 90px 1fr; gap: 1.2rem; padding: 1.1rem 0; border-bottom: 1px solid rgba(214,195,169,.22); }
-    .venue-fact dt { color: #D6C3A9; font-family: var(--accent-font); font-size: .65rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
-    .venue-fact dd { margin: 0; color: var(--on-dark-muted); font-size: .92rem; }
+    #venue { padding-block: clamp(3.5rem,5.5vw,5.5rem); background: #fff; color: var(--contrast); }
+    .venue-grid { display: grid; grid-template-columns: minmax(330px,.86fr) minmax(0,1.14fr); gap: clamp(2.5rem,6vw,5rem); align-items: stretch; }
+    .venue-image { min-height: 420px; display: flex; flex-direction: column; justify-content: space-between; padding: clamp(2rem,4vw,3rem); background: var(--background-soft); border: 1px solid var(--rule); color: var(--contrast); }
+    .venue-image .venue-date { color: var(--primary-ink); font-family: var(--heading); font-size: clamp(3.8rem,6.5vw,5.8rem); font-weight: 300; line-height: .92; letter-spacing: -.06em; }
+    .venue-date span { display: block; margin-bottom: 1rem; color: var(--accent); font-family: var(--accent-font); font-size: .68rem; font-weight: 600; letter-spacing: .16em; line-height: 1.4; text-transform: uppercase; }
+    .venue-image .venue-address { max-width: 22rem; color: var(--accent); font-family: var(--accent-font); font-size: .72rem; font-weight: 600; letter-spacing: .13em; line-height: 1.7; text-transform: uppercase; }
+    .venue-copy { display: flex; flex-direction: column; justify-content: center; }
+    .venue-logo { width: min(390px,78%); margin: 0 0 2rem; padding: 0; background: transparent; }
+    .venue-copy h2 { max-width: 14ch; font-size: clamp(2.25rem,4vw,3.7rem); }
+    .venue-facts { margin-top: 1.7rem; border-top: 1px solid var(--rule); }
+    .venue-fact { display: grid; grid-template-columns: 90px 1fr; gap: 1.2rem; padding: .95rem 0; border-bottom: 1px solid var(--rule); }
+    .venue-fact dt { color: var(--primary-ink); font-family: var(--accent-font); font-size: .65rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+    .venue-fact dd { margin: 0; color: var(--accent); font-size: .92rem; }
 
     .enquiry-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(3rem,8vw,7rem); align-items: start; }
     .enquiry-copy h2 { max-width: 11ch; }
@@ -779,22 +782,21 @@
       </div>
     </section>
 
-    <section class="block cocoa on-dark" id="venue">
+    <section class="block paper" id="venue">
       <div class="wrap venue-grid">
         <div class="venue-image" aria-label="Melbourne appointment dates and address">
-          <div class="venue-date">5—7<br>November</div>
-          <p class="venue-address">Upper Skin Clinic<br>185 Upper Heidelberg Road<br>Ivanhoe VIC 3079</p>
+          <div class="venue-date"><span>Three days in Melbourne</span>5—7<br>November</div>
+          <p class="venue-address">Upper Skin Clinic · Ivanhoe</p>
         </div>
-        <div>
+        <div class="venue-copy">
           <img class="venue-logo" src="images/brand/upper-skin-clinic-ivanhoe.webp" alt="Upper Skin Clinic Ivanhoe" loading="lazy" width="900" height="262">
-          <p class="eyebrow">Your Melbourne appointment</p>
-          <h2>A quiet clinic in Ivanhoe. Three hours that <span class="emphasis">belong to you.</span></h2>
+          <h2>Melbourne appointments at <span class="emphasis">Upper Skin Clinic.</span></h2>
           <dl class="venue-facts">
             <div class="venue-fact"><dt>When</dt><dd>Thursday 5, Friday 6 and Saturday 7 November 2026.</dd></div>
             <div class="venue-fact"><dt>Where</dt><dd>Upper Skin Clinic<br>185 Upper Heidelberg Road<br>Ivanhoe VIC 3079</dd></div>
             <div class="venue-fact"><dt>Parking</dt><dd>Free three-hour parking outside Pinkie Cafe at 1 Westley Avenue, a short walk from the clinic.</dd></div>
           </dl>
-          <div class="inline-cta"><a class="button light" href="https://www.google.com/maps/search/?api=1&query=185+Upper+Heidelberg+Road+Ivanhoe+VIC+3079" target="_blank" rel="noopener">Open in Google Maps</a></div>
+          <div class="inline-cta"><a class="button" href="https://www.google.com/maps/search/?api=1&query=185+Upper+Heidelberg+Road+Ivanhoe+VIC+3079" target="_blank" rel="noopener">Open in Google Maps</a></div>
         </div>
       </div>
     </section>
