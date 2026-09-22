@@ -35,10 +35,11 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    html { max-width: 100%; overflow-x: clip; scroll-behavior: smooth; scroll-padding-top: 88px; }
     body {
       margin: 0;
-      overflow-x: hidden;
+      max-width: 100%;
+      overflow-x: clip;
       background: var(--background);
       color: var(--contrast);
       font-family: var(--body);
@@ -64,7 +65,7 @@
     h4 { font-size: 1.1rem; font-weight: 500; letter-spacing: -.015em; }
     strong { font-weight: 600; }
     button, input, textarea { font: inherit; }
-    .wrap { width: min(var(--wrap), calc(100% - (var(--gutter) * 2))); margin-inline: auto; }
+    .wrap { width: min(var(--wrap), calc(100% - (var(--gutter) * 2))); min-width: 0; margin-inline: auto; }
     .narrow { width: min(780px, calc(100% - (var(--gutter) * 2))); margin-inline: auto; }
     .emphasis { color: var(--primary-ink); font-weight: 600; font-style: italic; }
     .on-dark { color: var(--on-dark); }
@@ -110,6 +111,7 @@
     .wordmark { display: block; width: clamp(150px, 15vw, 190px); text-decoration: none; line-height: 1; }
     .nav { display: flex; align-items: center; gap: 1.55rem; }
     .nav a { font-family: var(--accent-font); font-size: .7rem; font-weight: 500; letter-spacing: .11em; text-decoration: none; text-transform: uppercase; }
+    .nav-toggle { display: none; }
 
     .button {
       min-height: 48px;
@@ -423,9 +425,20 @@
       html { scroll-padding-top: 70px; }
       .announce { font-size: .61rem; letter-spacing: .08em; }
       .announce .venue { display: none; }
-      .header-inner { min-height: 68px; }
-      .nav a:not(.button) { display: none; }
-      .nav .button { min-height: 42px; padding: .7rem .85rem; font-size: .6rem; }
+      .header-inner { min-height: 68px; position: relative; }
+      .nav-toggle { width: 44px; height: 44px; padding: 0; border: 0; background: transparent; color: var(--contrast); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; flex: 0 0 auto; }
+      .nav-toggle-icon { width: 23px; height: 16px; position: relative; display: block; }
+      .nav-toggle-icon::before, .nav-toggle-icon::after, .nav-toggle-icon span { content: ''; position: absolute; left: 0; width: 100%; height: 1.5px; background: currentColor; transition: transform .2s ease, opacity .2s ease, top .2s ease; }
+      .nav-toggle-icon::before { top: 0; }
+      .nav-toggle-icon span { top: 7px; }
+      .nav-toggle-icon::after { top: 14px; }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-icon::before { top: 7px; transform: rotate(45deg); }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-icon span { opacity: 0; }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-icon::after { top: 7px; transform: rotate(-45deg); }
+      .nav { display: none; position: absolute; top: 100%; left: 0; right: 0; padding: .65rem 1rem 1rem; background: rgba(235,234,223,.99); box-shadow: 0 18px 32px rgba(36,31,26,.14); flex-direction: column; align-items: stretch; gap: 0; }
+      .nav[data-open="true"] { display: flex; }
+      .nav a, .nav a:not(.button) { display: block; width: 100%; padding: .88rem .25rem; border-bottom: 1px solid rgba(99,89,76,.16); white-space: normal; }
+      .nav .button { min-height: 46px; margin-top: .75rem; padding: .8rem 1rem; border-bottom: 1px solid var(--primary-ink); font-size: .68rem; }
       .hero { padding: 2.3rem 0 2.6rem; }
       .hero::before { display: none; }
       .hero-grid { gap: 2.2rem; }
@@ -433,12 +446,12 @@
       .actions .button { width: 100%; }
       .portrait-wrap { padding: .5rem .7rem 2.2rem; }
       .portrait-frame { height: auto; }
-      .review-pill { left: -.2rem; bottom: 3.8rem; }
+      .review-pill { left: .25rem; bottom: 3.8rem; max-width: calc(100% - .5rem); white-space: normal; }
       .proof-grid { grid-template-columns: 1fr 1fr; gap: 1.1rem .4rem; }
       .proof-item { padding-left: .75rem; }
       .proof-item:nth-child(odd) { border-left: 0; padding-left: 0; }
       section.block { padding: 4.2rem 0; }
-      .gallery-track { grid-auto-columns: 82vw; }
+      .gallery-track { grid-auto-columns: min(82vw, calc(100vw - (var(--gutter) * 2))); }
       .gallery-controls { align-items: flex-start; }
       .comparison, .special-grid, .about-grid { grid-template-columns: 1fr; }
       .about-photo img { height: auto; aspect-ratio: 4/5; }
@@ -453,7 +466,8 @@
       .form-grid { grid-template-columns: 1fr; }
       .field.full { grid-column: auto; }
       .footer-grid { grid-template-columns: 1fr; }
-      .footer-column { min-height: 0; }
+      .footer-column { min-height: 0; min-width: 0; }
+      .footer-grid a, .contact-list a { overflow-wrap: anywhere; }
       .footer-copyright { margin-top: .8rem; }
       .social-links { margin-top: .35rem; }
     }
@@ -489,7 +503,10 @@
       <a class="wordmark" href="index.html" aria-label="Lemonade Brows home">
         <img src="images/brand/lemonade-logo-black.png" alt="Lemonade Cosmetic Brows" width="758" height="278">
       </a>
-      <nav class="nav" aria-label="Page navigation">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Open navigation menu">
+        <span class="nav-toggle-icon" aria-hidden="true"><span></span></span>
+      </button>
+      <nav class="nav" id="site-navigation" aria-label="Page navigation">
         <a href="#results">Results</a>
         <a href="#package">The package</a>
         <a href="#method">My method</a>
@@ -824,6 +841,26 @@
   </footer>
 
   <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const siteNav = document.getElementById('site-navigation');
+    if (navToggle && siteNav) {
+      const setNavOpen = (open) => {
+        navToggle.setAttribute('aria-expanded', String(open));
+        navToggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+        siteNav.dataset.open = String(open);
+      };
+      navToggle.addEventListener('click', () => setNavOpen(navToggle.getAttribute('aria-expanded') !== 'true'));
+      siteNav.addEventListener('click', (event) => {
+        if (event.target.closest('a')) setNavOpen(false);
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
+          setNavOpen(false);
+          navToggle.focus();
+        }
+      });
+    }
+
     const gallery = document.getElementById('gallery-track');
     document.querySelectorAll('[data-gallery]').forEach((button) => {
       button.addEventListener('click', () => {
