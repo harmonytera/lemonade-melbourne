@@ -329,14 +329,6 @@
         const result = await response.json().catch(() => ({}));
         if (!response.ok || !result.ok) throw new Error(result.error || 'Submission failed');
 
-        if (typeof gtag === 'function') {
-          gtag('event', 'generate_lead', {
-            lead_source: 'melbourne_website',
-            campaign_name: 'melbourne_pop_up',
-            value: 1100,
-            currency: 'AUD',
-          });
-        }
         sessionStorage.setItem('melbourne_consultation_submitted', requestId);
         window.location.assign('thank-you.html');
       } catch (error) {
