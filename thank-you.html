@@ -28,6 +28,20 @@
   <header class="site-header"><div class="wrap header-inner"><a class="wordmark" href="index.html" aria-label="Lemonade Brows Melbourne home"><img src="images/brand/lemonade-logo-black.png" alt="Lemonade Cosmetic Brows" width="758" height="278"></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Open navigation menu"><span class="nav-toggle-icon" aria-hidden="true"><span></span></span></button><nav class="nav" id="site-navigation" aria-label="Page navigation"><a href="index.html#results">Results</a><a href="index.html#package">The package</a><a href="index.html#method">My method</a><a href="index.html#questions">Questions</a><a class="button" href="tel:+61414235274">Call Harmony</a></nav></div></header>
   <main id="main"><section class="thanks"><div class="wrap thanks-grid"><div><p class="eyebrow">Request received</p><h1>Thank you. I’ll be <em>in touch.</em></h1><p class="lede">Your consultation request has been sent securely. I’ll read what you’ve shared and contact you to arrange your free 15-minute suitability call.</p><div class="actions"><a class="button" href="index.html">Return to Melbourne information</a><a class="button secondary" href="tel:+61414235274">Call Harmony</a></div></div><aside class="next-card"><h2>What happens next</h2><div class="step"><b>01</b><p>I’ll personally review your brow concerns and the details you’ve shared.</p></div><div class="step"><b>02</b><p>I’ll contact you to arrange a time for the call. It isn’t a sales call and there is no obligation to book.</p></div><div class="step"><b>03</b><p>We’ll talk through suitability, your questions and what a realistic result could look like for you.</p></div><small>If you need to add anything, call <a href="tel:+61414235274">0414 235 274</a> or email <a href="mailto:excuseme@lemonadebrows.au">excuseme@lemonadebrows.au</a>.</small></aside></div></section></main>
   <footer class="site-footer"><div class="wrap footer-inner"><a class="wordmark" href="index.html"><img src="images/brand/lemonade-logo-black.png" alt="Lemonade Cosmetic Brows" width="758" height="278"></a><span>© 2026 Lemonade Brows</span><div class="footer-links"><a href="pre-appointment.html">Pre-Appointment</a><a href="aftercare.html">Aftercare</a><a href="policies.html">Policies</a></div></div></footer>
-  <script>const navToggle=document.querySelector('.nav-toggle');const siteNav=document.getElementById('site-navigation');if(navToggle&&siteNav){const setNavOpen=open=>{navToggle.setAttribute('aria-expanded',String(open));navToggle.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');siteNav.dataset.open=String(open)};navToggle.addEventListener('click',()=>setNavOpen(navToggle.getAttribute('aria-expanded')!=='true'));siteNav.addEventListener('click',event=>{if(event.target.closest('a'))setNavOpen(false)});document.addEventListener('keydown',event=>{if(event.key==='Escape'){setNavOpen(false);navToggle.focus()}})}</script>
+  <script>
+    const submittedRequest = sessionStorage.getItem('melbourne_consultation_submitted');
+    const trackedRequest = sessionStorage.getItem('melbourne_consultation_conversion_tracked');
+    if (submittedRequest && trackedRequest !== submittedRequest && typeof gtag === 'function') {
+      gtag('event', 'generate_lead', {
+        lead_source: 'melbourne_website',
+        campaign_name: 'melbourne_pop_up',
+        value: 1100,
+        currency: 'AUD'
+      });
+      sessionStorage.setItem('melbourne_consultation_conversion_tracked', submittedRequest);
+    }
+
+    const navToggle=document.querySelector('.nav-toggle');const siteNav=document.getElementById('site-navigation');if(navToggle&&siteNav){const setNavOpen=open=>{navToggle.setAttribute('aria-expanded',String(open));navToggle.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');siteNav.dataset.open=String(open)};navToggle.addEventListener('click',()=>setNavOpen(navToggle.getAttribute('aria-expanded')!=='true'));siteNav.addEventListener('click',event=>{if(event.target.closest('a'))setNavOpen(false)});document.addEventListener('keydown',event=>{if(event.key==='Escape'){setNavOpen(false);navToggle.focus()}})}
+  </script>
 </body>
 </html>
