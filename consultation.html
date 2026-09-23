@@ -196,9 +196,10 @@
 
         <div class="form-card">
           <h3>Request your free 15-minute call</h3>
-          <p>Enough detail for me to make the call useful. You are not committing to a treatment. When you finish, your email app will open with everything ready for you to review and send.</p>
+          <p>Enough detail for me to make the call useful. You are not committing to a treatment. Your request will be sent securely to me and I’ll contact you to arrange the call.</p>
           <p class="required-note"><span class="required-mark" aria-hidden="true">*</span> Required contact details</p>
           <form id="consult-form" data-clarity-mask="true">
+            <div class="field" aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;"><label for="preview-website">Website</label><input id="preview-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
             <div class="form-grid">
               <div class="field"><label for="preview-name">Full name <span class="required-mark" aria-hidden="true">*</span></label><input id="preview-name" name="name" type="text" autocomplete="name" minlength="2" required aria-required="true"></div>
               <div class="field"><label for="preview-phone">Mobile <span class="required-mark" aria-hidden="true">*</span></label><input id="preview-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" minlength="8" maxlength="20" required aria-required="true"></div>
@@ -215,7 +216,7 @@
               </fieldset>
               <div class="field full"><label for="preview-change">What would you most like to change?</label><textarea id="preview-change" name="change" placeholder="In your own words — there is no wrong answer."></textarea></div>
             </div>
-            <button class="button" type="submit">Prepare my consultation email</button>
+            <button class="button" type="submit">Send my consultation request</button>
             <p class="form-status" id="form-status" aria-live="polite"></p>
           </form>
         </div>
@@ -281,31 +282,68 @@
       });
     }
 
-    document.getElementById('consult-form').addEventListener('submit', (event) => {
+    const attributionKeys = ['gclid', 'fbclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+    const currentParams = new URLSearchParams(window.location.search);
+    attributionKeys.forEach((key) => {
+      const value = currentParams.get(key);
+      if (value) sessionStorage.setItem(`lemonade_${key}`, value);
+    });
+
+    document.getElementById('consult-form').addEventListener('submit', async (event) => {
       event.preventDefault();
       const form = event.currentTarget;
+      const button = form.querySelector('button[type="submit"]');
+      const status = document.getElementById('form-status');
       const data = new FormData(form);
       const concerns = data.getAll('concern');
       const name = String(data.get('name') || '').trim();
       const phone = String(data.get('phone') || '').trim();
       const email = String(data.get('email') || '').trim();
       const change = String(data.get('change') || '').trim();
-      const subject = `Melbourne brow consultation request — ${name}`;
-      const body = [
-        'Hello Harmony,',
-        '',
-        'I would like to request a free 15-minute Melbourne brow consultation.',
-        '',
-        `Name: ${name}`,
-        `Mobile: ${phone}`,
-        `Email: ${email}`,
-        `What is happening with my brows: ${concerns.length ? concerns.join(', ') : 'Not specified'}`,
-        `What I would most like to change: ${change || 'Not specified'}`,
-        '',
-        'Please contact me to arrange the call.'
-      ].join('\n');
-      document.getElementById('form-status').textContent = 'Your email app is opening. Please review the message and press Send to complete your request.';
-      window.location.href = `mailto:excuseme@lemonadebrows.au?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const requestId = crypto.randomUUID();
+      const payload = {
+        request_id: requestId,
+        name,
+        phone,
+        email,
+        concerns,
+        change,
+        website: String(data.get('website') || ''),
+        referrer: document.referrer || null,
+        landing_page: window.location.href,
+      };
+      attributionKeys.forEach((key) => {
+        payload[key] = sessionStorage.getItem(`lemonade_${key}`) || null;
+      });
+
+      button.disabled = true;
+      button.textContent = 'Sending…';
+      status.textContent = 'Sending your request securely…';
+
+      try {
+        const response = await fetch('https://hxunrhnljvfvcjpmdpnb.supabase.co/functions/v1/melbourne-consultation', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || !result.ok) throw new Error(result.error || 'Submission failed');
+
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', {
+            lead_source: 'melbourne_website',
+            campaign_name: 'melbourne_pop_up',
+            value: 1100,
+            currency: 'AUD',
+          });
+        }
+        sessionStorage.setItem('melbourne_consultation_submitted', requestId);
+        window.location.assign('thank-you.html');
+      } catch (error) {
+        button.disabled = false;
+        button.textContent = 'Send my consultation request';
+        status.innerHTML = 'I couldn’t send your request just now. Please try again, call <a href="tel:+61414235274">0414 235 274</a>, or email <a href="mailto:excuseme@lemonadebrows.au">excuseme@lemonadebrows.au</a>.';
+      }
     });
   </script>
 </body>
