@@ -961,6 +961,11 @@
   </div>
 
   <script>
+    ['gclid', 'fbclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach((key) => {
+      const value = new URLSearchParams(window.location.search).get(key);
+      if (value) sessionStorage.setItem(`lemonade_${key}`, value);
+    });
+
     const navToggle = document.querySelector('.nav-toggle');
     const siteNav = document.getElementById('site-navigation');
     if (navToggle && siteNav) {
