@@ -378,6 +378,14 @@
         if (!response.ok || !result.ok) throw new Error(result.error || 'Submission failed');
 
         sessionStorage.setItem('melbourne_consultation_submitted', requestId);
+        if (window.fbq) {
+          fbq('track', 'Lead', {
+            content_name: 'Melbourne consultation request',
+            content_category: 'Melbourne brow restoration',
+            value: 1100,
+            currency: 'AUD'
+          });
+        }
         window.location.assign('thank-you.html');
       } catch (error) {
         button.disabled = false;
