@@ -60,15 +60,5 @@
 
     const navToggle=document.querySelector('.nav-toggle');const siteNav=document.getElementById('site-navigation');if(navToggle&&siteNav){const setNavOpen=open=>{navToggle.setAttribute('aria-expanded',String(open));navToggle.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');siteNav.dataset.open=String(open)};navToggle.addEventListener('click',()=>setNavOpen(navToggle.getAttribute('aria-expanded')!=='true'));siteNav.addEventListener('click',event=>{if(event.target.closest('a'))setNavOpen(false)});document.addEventListener('keydown',event=>{if(event.key==='Escape'){setNavOpen(false);navToggle.focus()}})}
   </script>
-  <script>
-    if (sessionStorage.getItem('melbourne_consultation_submitted') && window.fbq) {
-      fbq('track', 'Lead', {
-        content_name: 'Melbourne consultation thank you',
-        content_category: 'Melbourne brow restoration',
-        value: 1100,
-        currency: 'AUD'
-      });
-    }
-  </script>
 </body>
 </html>
