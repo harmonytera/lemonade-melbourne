@@ -627,10 +627,13 @@
       .hero .lede { font-size: .98rem; line-height: 1.45; }
       .hero-grid { display: flex; flex-direction: column; }
       .hero-copy { order: 2; }
-      .hero-proof { order: 1; width: 100%; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: .42rem; padding: .42rem; }
-      .hero-proof-card { aspect-ratio: auto; }
-      .hero-proof-card img { height: auto; object-fit: contain; }
-      .hero-proof-card.featured { grid-column: 1 / -1; grid-row: auto; min-height: 0; aspect-ratio: auto; }
+      .hero-proof { order: 1; width: 100%; grid-template-columns: 1fr 1fr; grid-template-areas: "featured featured" "proof-a proof-b"; gap: .42rem; padding: .42rem; }
+      .hero-proof-card { min-height: 0; aspect-ratio: 1 / 1; }
+      .hero-proof-card img { height: 100%; object-fit: cover; }
+      .hero-proof-card.featured { grid-area: featured; grid-column: auto; grid-row: auto; min-height: 0; aspect-ratio: 16 / 10; }
+      .hero-proof-card:nth-of-type(2) { grid-area: proof-a; }
+      .hero-proof-card:nth-of-type(3) { grid-area: proof-b; }
+      .hero-proof-card.featured img { object-position: center 36%; }
       .hero-proof-card:not(.featured) { aspect-ratio: 4 / 5; }
       .hero-proof-card:not(.featured) img { height: 100%; object-fit: cover; }
       .hero-package { display: block; margin-top: .85rem; font-size: .62rem; line-height: 1.7; }
