@@ -297,18 +297,23 @@
       white-space: nowrap;
       pointer-events: none;
     }
-    .hero-grid { position: relative; display: grid; grid-template-columns: minmax(0,1fr) minmax(440px,1fr); gap: clamp(1.8rem,3.5vw,3.5rem); align-items: center; }
+    .hero-grid { position: relative; display: grid; grid-template-columns: minmax(0,1.02fr) minmax(420px,.98fr); gap: clamp(1.65rem,3.2vw,3.25rem); align-items: center; }
     .hero .eyebrow::before { display: none; }
-    .hero h1 { max-width: 13ch; }
-    .hero .lede { max-width: 35rem; margin-top: .95rem; font-size: clamp(1.01rem,.35vw + .95rem,1.15rem); line-height: 1.5; }
+    .hero h1 { max-width: 10.5ch; font-size: clamp(3.05rem,5.1vw,4.85rem); }
+    .hero .lede { max-width: 38rem; margin-top: .95rem; font-size: clamp(1rem,.35vw + .95rem,1.14rem); line-height: 1.48; }
     .hero .actions { margin-top: clamp(1.25rem,2.4vh,1.75rem); }
     .cta-note { margin-top: .5rem; color: var(--accent); font-family: var(--accent-font); font-size: .73rem; }
-    .portrait-wrap { position: relative; justify-self: center; padding: .15rem .25rem .4rem; }
-    .portrait-frame { overflow: hidden; height: min(60vh,560px); aspect-ratio: 9/10; background: var(--sand); border-radius: 48% 48% 0 0 / 20% 20% 0 0; box-shadow: 0 26px 58px -38px rgba(36,31,26,.6); }
-    .portrait-frame img { height: 100%; object-fit: cover; }
-    .review-pill { position: absolute; left: -1.2rem; bottom: 3.5rem; display: flex; gap: .8rem; align-items: center; padding: .75rem 1rem; background: #fff; border: 1px solid rgba(110,93,74,.2); box-shadow: 0 18px 35px -27px rgba(36,31,26,.75); font-family: var(--accent-font); font-size: .64rem; line-height: 1.35; letter-spacing: .09em; text-decoration: none; text-transform: uppercase; }
+    .hero-package { display: flex; flex-wrap: wrap; gap: .18rem .7rem; margin-top: 1rem; color: var(--accent); font-family: var(--accent-font); font-size: .72rem; font-weight: 500; letter-spacing: .08em; line-height: 1.55; text-transform: uppercase; }
+    .hero-package span { display: inline; }
+    .hero-package span + span::before { content: '·'; margin-right: .7rem; color: var(--primary-ink); font-weight: 500; }
+    .hero-package b { color: var(--contrast); font-weight: 700; }
+    .hero-proof { position: relative; display: grid; grid-template-columns: minmax(0,1.18fr) minmax(0,.82fr); grid-template-rows: 1fr 1fr; gap: .72rem; align-items: stretch; padding: .72rem; background: rgba(255,253,248,.62); border: 1px solid rgba(110,93,74,.16); box-shadow: 0 28px 60px -48px rgba(36,31,26,.72); }
+    .hero-proof-card { position: relative; overflow: hidden; margin: 0; aspect-ratio: 4 / 5; background: var(--paper); }
+    .hero-proof-card.featured { grid-row: 1 / span 2; aspect-ratio: auto; min-height: min(58vh,560px); }
+    .hero-proof-card img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .hero-proof-card::after { content: ''; position: absolute; inset: 0; border: 1px solid rgba(255,255,255,.2); pointer-events: none; }
+    .review-pill { position: absolute; left: 1.2rem; bottom: 1.2rem; display: flex; gap: .8rem; align-items: center; padding: .72rem .9rem; background: rgba(255,255,255,.94); border: 1px solid rgba(110,93,74,.18); box-shadow: 0 18px 35px -27px rgba(36,31,26,.75); font-family: var(--accent-font); font-size: .62rem; line-height: 1.35; letter-spacing: .09em; text-decoration: none; text-transform: uppercase; }
     .stars { color: var(--primary-ink); letter-spacing: .1em; }
-    .portrait-caption { margin-top: .55rem; text-align: right; font-family: var(--accent-font); font-size: .64rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
     .proof-strip { flex: 0 0 auto; background: var(--espresso); color: var(--on-dark); padding: .82rem 0; }
     .proof-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: .5rem; }
     .proof-item { padding: .35rem 1.2rem; border-left: 1px solid rgba(214,195,169,.35); }
@@ -571,7 +576,7 @@
       .venue-logo { margin-left: 0; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .hero { min-height: auto; }
-      .portrait-wrap { width: min(610px,100%); margin-inline: auto; }
+      .hero-proof { width: min(650px,100%); margin-inline: auto; }
       .sticky { position: static; }
       .results-head, .offer-head { grid-template-columns: 1fr; }
       .results-head p, .offer-head .price-lock { justify-self: start; text-align: left; }
@@ -614,9 +619,21 @@
       .hero-grid { gap: 2.2rem; }
       .hero h1 { max-width: 10ch; font-size: clamp(2.8rem,13vw,4rem); }
       .actions .button { width: 100%; }
-      .portrait-wrap { padding: .5rem .7rem 2.2rem; }
-      .portrait-frame { height: auto; }
-      .review-pill { left: .25rem; bottom: 3.8rem; max-width: calc(100% - .5rem); white-space: normal; }
+      .hero { padding: .9rem 0 2rem; }
+      .hero-grid { gap: 1.55rem; }
+      .hero h1 { max-width: none; font-size: clamp(2.35rem,10.2vw,3.25rem); }
+      .hero-copy { width: 100%; }
+      .hero-copy .eyebrow, .hero-copy .lede, .hero-copy .cta-note { max-width: none; }
+      .hero .lede { font-size: .98rem; line-height: 1.45; }
+      .hero-grid { display: flex; flex-direction: column; }
+      .hero-copy { order: 2; }
+      .hero-proof { order: 1; width: 100%; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: .42rem; padding: .42rem; }
+      .hero-proof-card.featured { grid-column: 1 / -1; grid-row: auto; min-height: 0; aspect-ratio: 4 / 3.35; }
+      .hero-proof-card:not(.featured) { aspect-ratio: 4 / 5; }
+      .hero-package { display: block; margin-top: .85rem; font-size: .62rem; line-height: 1.7; }
+      .hero-package span { display: block; }
+      .hero-package span + span::before { content: none; }
+      .review-pill { left: .7rem; bottom: .7rem; max-width: calc(100% - 1.4rem); padding: .55rem .65rem; font-size: .5rem; white-space: normal; }
       .proof-grid { grid-template-columns: 1fr 1fr; gap: 1.1rem .4rem; }
       .proof-item { padding-left: .75rem; }
       .proof-item:nth-child(odd) { border-left: 0; padding-left: 0; }
@@ -722,7 +739,7 @@
       .hero-grid { gap: 3.2rem; }
       .hero h1 { font-size: clamp(3.25rem,5vw,4.3rem); max-width: 10ch; }
       .hero .lede { margin-top: .8rem; font-size: 1rem; }
-      .portrait-frame { height: min(58vh,450px); }
+      .hero-proof-card.featured { min-height: min(55vh,450px); }
       .button { min-height: 43px; padding: .7rem 1.05rem; }
       .proof-strip { padding-block: .72rem; }
     }
@@ -794,26 +811,36 @@
     <div class="hero-stage">
       <section class="hero">
         <div class="wrap hero-grid">
-          <div>
+          <div class="hero-copy">
             <p class="eyebrow">Sydney specialist · three days in Melbourne</p>
-            <h1>Brows that look like <span class="emphasis">you.</span></h1>
-            <p class="lede">Thinned, faded or gone altogether — age, hormones, thyroid, alopecia, cancer treatment, or thirty years of plucking. Restoring them is what I do, and it's nearly all I do.</p>
+            <h1>Natural brow restoration for <span class="emphasis">mature women.</span></h1>
+            <p class="lede">Soft, conservative cosmetic brow tattooing for brows thinned by age, hormones, alopecia, cancer treatment or years of overplucking — designed to look like it belongs on your face.</p>
+            <div class="hero-package" aria-label="Melbourne package summary">
+              <span><b>5–7 Nov</b> · Ivanhoe</span>
+              <span><b>$1,100</b> complete package</span>
+              <span><b>Both appointments</b> included</span>
+            </div>
             <div class="actions">
-              <a class="button" href="consultation.html">Book a free suitability call</a>
+              <a class="button" href="consultation.html">Check if I'm suitable</a>
               <a class="text-link" href="#results">See real results →</a>
             </div>
-            <p class="cta-note">No sales call. Just a free suitability conversation before you decide anything.</p>
+            <p class="cta-note">Free 15-minute phone consult. No pressure to book.</p>
           </div>
 
-          <div class="portrait-wrap">
-            <figure class="portrait-frame">
-              <img src="images/brand/harmony-2.webp" alt="Harmony Tera, cosmetic brow tattoo specialist" width="900" height="1125" fetchpriority="high">
+          <div class="hero-proof" aria-label="Real Lemonade Brows result and specialist proof">
+            <figure class="hero-proof-card featured">
+              <img src="images/gallery/meta-proof-03.webp" alt="Mature Lemonade Brows client with soft natural brow restoration" width="1080" height="1350" fetchpriority="high">
+            </figure>
+            <figure class="hero-proof-card">
+              <img src="images/gallery/meta-proof-01.webp" alt="Real Lemonade Brows client before and after natural brow restoration" width="1080" height="1350" loading="eager">
+            </figure>
+            <figure class="hero-proof-card">
+              <img src="images/gallery/meta-proof-02.webp" alt="Real Lemonade Brows client before and after soft brow restoration" width="1080" height="1350" loading="eager">
             </figure>
             <a class="review-pill" href="https://www.google.com/maps/place/Lemonade+Brows/@-33.8856731,151.1785211,17z/data=!4m8!3m7!1s0x6b12bd1e7e5c5301:0xbccc50af9c1b1785!8m2!3d-33.8856731!4d151.1785211!9m1!1b1!16s%2Fg%2F11qtzz320k" target="_blank" rel="noopener" aria-label="Read Lemonade Brows Google reviews">
               <span class="stars">★★★★★</span>
               <span>5.0<br><strong>119 Google reviews</strong></span>
             </a>
-            <div class="portrait-caption">Harmony Tera · mature and restorative brows</div>
           </div>
         </div>
       </section>
