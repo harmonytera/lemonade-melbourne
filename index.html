@@ -628,8 +628,11 @@
       .hero-grid { display: flex; flex-direction: column; }
       .hero-copy { order: 2; }
       .hero-proof { order: 1; width: 100%; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: .42rem; padding: .42rem; }
-      .hero-proof-card.featured { grid-column: 1 / -1; grid-row: auto; min-height: 0; aspect-ratio: 4 / 3.35; }
+      .hero-proof-card { aspect-ratio: auto; }
+      .hero-proof-card img { height: auto; object-fit: contain; }
+      .hero-proof-card.featured { grid-column: 1 / -1; grid-row: auto; min-height: 0; aspect-ratio: auto; }
       .hero-proof-card:not(.featured) { aspect-ratio: 4 / 5; }
+      .hero-proof-card:not(.featured) img { height: 100%; object-fit: cover; }
       .hero-package { display: block; margin-top: .85rem; font-size: .62rem; line-height: 1.7; }
       .hero-package span { display: block; }
       .hero-package span + span::before { content: none; }
