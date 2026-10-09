@@ -99,6 +99,8 @@
     .contact-list a { color: #fff; }
     .form-card { padding: clamp(1.5rem,4vw,2.5rem); background: var(--paper); color: var(--contrast); }
     .form-card > p { margin: .8rem 0 1.7rem; color: #63594C; font-size: .92rem; }
+    .package-note { margin: 0 0 1.4rem; padding: .95rem 1rem; border: 1px solid rgba(151,131,106,.28); background: rgba(235,234,223,.55); color: #63594C; font-size: .88rem; line-height: 1.5; }
+    .package-note strong { display: block; margin-bottom: .15rem; color: #2E2E2E; font-family: var(--heading); font-size: 1rem; font-weight: 500; letter-spacing: -.015em; }
     .required-note { margin-top: -.85rem !important; color: var(--primary-ink) !important; font-family: var(--accent-font); font-size: .7rem !important; letter-spacing: .05em; }
     .required-mark { color: var(--primary-ink); font-weight: 600; }
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.15rem; }
@@ -232,7 +234,7 @@
         <div class="enquiry-copy">
           <p class="eyebrow no-rule">Start with a conversation</p>
           <h2>Tell me what's happening with <span class="emphasis">your brows.</span></h2>
-          <p class="lede">This isn't a sales call. It's a suitability conversation: your brow loss, medical history, medications, previous tattoo, expectations and anything you're frightened of getting wrong.</p>
+          <p class="lede">This isn't a sales call. It's a suitability conversation: what's happened with your brows, your skin, any previous tattooing, health factors that may affect healing, and what you're worried about getting wrong.</p>
           <p>If I don't believe cosmetic tattooing is right for you, I'll tell you. If it is, you'll know exactly what happens next before you decide.</p>
           <p>Prefer to ask something simple first? You can call or text me directly before filling this out.</p>
           <div class="contact-list">
@@ -244,6 +246,10 @@
         <div class="form-card">
           <h3>Check if you're suitable</h3>
           <p>Enough detail for me to make the call useful. You are not committing to treatment. I’ll contact you to arrange the call, answer your questions and tell you honestly if I think this is right for you.</p>
+          <div class="package-note">
+            <strong>The Melbourne package is $1,100.</strong>
+            This includes both appointments: your initial brow restoration appointment and the six-week perfecting session. No payment is taken from this form.
+          </div>
           <p class="required-note"><span class="required-mark" aria-hidden="true">*</span> Required contact details</p>
           <form id="consult-form" data-clarity-mask="true">
             <div class="field" aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;"><label for="preview-website">Website</label><input id="preview-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
@@ -264,6 +270,7 @@
               <div class="field full"><label for="preview-change">What would you most like to change?</label><textarea id="preview-change" name="change" placeholder="In your own words — there is no wrong answer."></textarea></div>
             </div>
             <button class="button" type="submit">Send my suitability request</button>
+            <p class="required-note">Harmony personally reads every request.</p>
             <p class="form-status" id="form-status" aria-live="polite"></p>
           </form>
         </div>
@@ -348,7 +355,9 @@
       const phone = String(data.get('phone') || '').trim();
       const email = String(data.get('email') || '').trim();
       const change = String(data.get('change') || '').trim();
-      const requestId = crypto.randomUUID();
+      const requestId = (window.crypto && crypto.randomUUID)
+        ? crypto.randomUUID()
+        : `melb-${Date.now()}-${Math.random().toString(36).slice(2)}`;
       const payload = {
         request_id: requestId,
         name,
