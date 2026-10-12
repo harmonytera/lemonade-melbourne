@@ -314,6 +314,7 @@
     .hero-proof-card::after { content: ''; position: absolute; inset: 0; border: 1px solid rgba(255,255,255,.2); pointer-events: none; }
     .hero-proof-card, .result-card { cursor: zoom-in; }
     .hero-proof-card:focus-visible, .result-card:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+    .zoom-cue { position: absolute; right: .7rem; bottom: .7rem; z-index: 1; padding: .42rem .55rem; background: rgba(255,253,248,.9); color: var(--contrast); font-family: var(--accent-font); font-size: .58rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; pointer-events: none; }
     .review-pill { position: absolute; left: 1.2rem; bottom: 1.2rem; display: flex; gap: .8rem; align-items: center; padding: .72rem .9rem; background: rgba(255,255,255,.94); border: 1px solid rgba(110,93,74,.18); box-shadow: 0 18px 35px -27px rgba(36,31,26,.75); font-family: var(--accent-font); font-size: .62rem; line-height: 1.35; letter-spacing: .09em; text-decoration: none; text-transform: uppercase; }
     .stars { color: var(--primary-ink); letter-spacing: .1em; }
     .proof-strip { flex: 0 0 auto; background: var(--espresso); color: var(--on-dark); padding: .82rem 0; }
@@ -360,6 +361,7 @@
     .result-card { position: relative; overflow: hidden; margin: 0; aspect-ratio: 4/5; background: var(--cocoa); scroll-snap-align: start; }
     .result-card img { height: 100%; object-fit: cover; }
     .result-card::after { content: ''; position: absolute; inset: 0; border: 1px solid rgba(255,255,255,.12); pointer-events: none; }
+    .result-card .zoom-cue { background: rgba(36,31,26,.78); color: #fff; }
     .image-lightbox { position: fixed; inset: 0; z-index: 100; display: none; place-items: center; padding: clamp(1rem,3vw,2rem); background: rgba(20,17,14,.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
     .image-lightbox[data-open="true"] { display: grid; }
     .image-lightbox img { width: auto; max-width: min(94vw,1120px); max-height: 86svh; object-fit: contain; box-shadow: 0 28px 70px rgba(0,0,0,.35); }
@@ -840,12 +842,15 @@
           <div class="hero-proof" aria-label="Real Lemonade Brows result and specialist proof">
             <figure class="hero-proof-card featured">
               <img src="images/gallery/meta-proof-03.webp" alt="Mature Lemonade Brows client with soft natural brow restoration" width="1080" height="1350" fetchpriority="high">
+              <span class="zoom-cue">View</span>
             </figure>
             <figure class="hero-proof-card">
               <img src="images/gallery/meta-proof-01.webp" alt="Real Lemonade Brows client before and after natural brow restoration" width="1080" height="1350" loading="eager">
+              <span class="zoom-cue">View</span>
             </figure>
             <figure class="hero-proof-card">
               <img src="images/gallery/meta-proof-02.webp" alt="Real Lemonade Brows client before and after soft brow restoration" width="1080" height="1350" loading="eager">
+              <span class="zoom-cue">View</span>
             </figure>
             <a class="review-pill" href="https://www.google.com/maps/place/Lemonade+Brows/@-33.8856731,151.1785211,17z/data=!4m8!3m7!1s0x6b12bd1e7e5c5301:0xbccc50af9c1b1785!8m2!3d-33.8856731!4d151.1785211!9m1!1b1!16s%2Fg%2F11qtzz320k" target="_blank" rel="noopener" aria-label="Read Lemonade Brows Google reviews">
               <span class="stars">★★★★★</span>
@@ -902,20 +907,20 @@
         </div>
         <div class="gallery-shell">
           <div class="gallery-track" id="gallery-track" tabindex="0" aria-label="Before and after brow results carousel">
-            <figure class="result-card"><img src="images/gallery/result-01.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"></figure>
-            <figure class="result-card"><img src="images/gallery/result-07.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"></figure>
-            <figure class="result-card"><img src="images/gallery/result-06.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"></figure>
-            <figure class="result-card"><img src="images/gallery/result-14.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"></figure>
-            <figure class="result-card"><img src="images/gallery/result-02.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"></figure>
-            <figure class="result-card"><img src="images/gallery/result-03.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"></figure>
-            <figure class="result-card"><img src="images/gallery/result-04.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"></figure>
-            <figure class="result-card"><img src="images/gallery/result-05.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"></figure>
-            <figure class="result-card"><img src="images/gallery/result-08.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"></figure>
-            <figure class="result-card"><img src="images/gallery/result-09.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"></figure>
-            <figure class="result-card"><img src="images/gallery/result-10.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"></figure>
-            <figure class="result-card"><img src="images/gallery/result-11.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"></figure>
-            <figure class="result-card"><img src="images/gallery/result-12.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"></figure>
-            <figure class="result-card"><img src="images/gallery/result-13.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"></figure>
+            <figure class="result-card"><img src="images/gallery/result-01.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"><span class="zoom-cue">View</span></figure>
+            <figure class="result-card"><img src="images/gallery/result-07.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"><span class="zoom-cue">View</span></figure>
+            <figure class="result-card"><img src="images/gallery/result-06.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"><span class="zoom-cue">View</span></figure>
+            <figure class="result-card"><img src="images/gallery/result-14.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"><span class="zoom-cue">View</span></figure>
+            <figure class="result-card"><img src="images/gallery/result-02.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"><span class="zoom-cue">View</span></figure>
+            <figure class="result-card"><img src="images/gallery/result-03.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"><span class="zoom-cue">View</span></figure>
+            <figure class="result-card"><img src="images/gallery/result-04.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"><span class="zoom-cue">View</span></figure>
+            <figure class="result-card"><img src="images/gallery/result-05.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"><span class="zoom-cue">View</span></figure>
+            <figure class="result-card"><img src="images/gallery/result-08.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"><span class="zoom-cue">View</span></figure>
+            <figure class="result-card"><img src="images/gallery/result-09.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"><span class="zoom-cue">View</span></figure>
+            <figure class="result-card"><img src="images/gallery/result-10.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"><span class="zoom-cue">View</span></figure>
+            <figure class="result-card"><img src="images/gallery/result-11.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"><span class="zoom-cue">View</span></figure>
+            <figure class="result-card"><img src="images/gallery/result-12.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"><span class="zoom-cue">View</span></figure>
+            <figure class="result-card"><img src="images/gallery/result-13.webp" alt="Client before and after brow restoration" loading="lazy" width="900" height="1125"><span class="zoom-cue">View</span></figure>
           </div>
           <div class="gallery-controls">
             <div class="gallery-buttons" aria-label="Carousel controls">
@@ -1215,6 +1220,7 @@
     const gallery = document.getElementById('gallery-track');
     document.querySelectorAll('[data-gallery]').forEach((button) => {
       button.addEventListener('click', () => {
+        if (!gallery) return;
         const amount = Math.max(280, gallery.clientWidth * .72);
         gallery.scrollBy({ left: button.dataset.gallery === 'next' ? amount : -amount, behavior: 'smooth' });
       });
