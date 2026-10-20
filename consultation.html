@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="canonical" href="https://melbourne.lemonadebrows.au/consultation.html">
   <title>Free Brow Suitability Call · Lemonade Brows Melbourne</title>
   <meta name="description" content="Check whether restorative brow tattooing is suitable for you before booking Lemonade Brows' Melbourne visit.">
@@ -67,7 +69,7 @@
     h2 { font-size: clamp(2.4rem, 4.7vw, 4.35rem); }
     h3 { font-size: clamp(1.35rem, 2.2vw, 1.9rem); }
     strong { font-weight: 600; }
-    button, input, textarea { font: inherit; }
+    button, input, select, textarea { font: inherit; }
     .wrap { width: min(var(--wrap), calc(100% - (var(--gutter) * 2))); min-width: 0; margin-inline: auto; }
     .emphasis { color: #D6C3A9; font-weight: 600; font-style: italic; }
     .skip { position: fixed; left: 1rem; top: -100px; z-index: 99; padding: .7rem 1rem; background: #fff; }
@@ -107,12 +109,19 @@
     .field { display: grid; gap: .4rem; }
     .field.full { grid-column: 1 / -1; }
     .field label, .field legend { font-family: var(--accent-font); font-size: .66rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
-    .field input, .field textarea { width: 100%; border: 1px solid var(--rule); border-radius: 0; background: #fff; color: var(--contrast); padding: .78rem .9rem; }
+    .field input, .field select, .field textarea { width: 100%; border: 1px solid var(--rule); border-radius: 0; background: #fff; color: var(--contrast); padding: .78rem .9rem; }
+    .field select:disabled { background: #F2F0E9; color: #7C746A; cursor: wait; }
     .field textarea { min-height: 105px; resize: vertical; }
     fieldset.field { margin: 0; padding: 0; border: 0; }
     .choices { display: grid; grid-template-columns: 1fr 1fr; gap: .55rem; }
     .choice { display: flex; gap: .55rem; align-items: center; padding: .7rem; border: 1px solid var(--rule); font-family: var(--body) !important; font-size: .82rem !important; font-weight: 400 !important; letter-spacing: 0 !important; text-transform: none !important; }
     .choice input { width: auto; }
+    .booking-block { margin-top: .25rem !important; padding: 1.15rem !important; border: 1px solid rgba(151,131,106,.38) !important; background: rgba(235,234,223,.42); }
+    .booking-block > legend { padding: 0 .4rem; color: var(--primary-ink); }
+    .booking-help { margin: 0 0 1rem; color: #63594C; font-size: .86rem; line-height: 1.55; }
+    .booking-selects { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+    .booking-selects label { display: grid; gap: .4rem; }
+    .slot-status { min-height: 1.35em; margin: .75rem 0 0; color: #63594C; font-size: .78rem; line-height: 1.5; }
     .form-card .button { width: 100%; margin-top: 1.2rem; }
     .form-status { min-height: 1.4em; margin-top: .75rem; color: var(--primary-ink); font-size: .84rem; }
     .next-visit { display: flex; justify-content: space-between; gap: 2rem; align-items: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(214,195,169,.25); }
@@ -162,7 +171,7 @@
       .announce-availability .sep { display:none; }
       .header-inner { min-height: 68px; }
       .nav .button { min-height: 42px; padding: .7rem .85rem; font-size: .62rem; }
-      .form-grid, .choices { grid-template-columns: 1fr; }
+      .form-grid, .choices, .booking-selects { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-column { min-height: 0; }
       .footer-column { min-width: 0; }
@@ -209,21 +218,21 @@
   <div class="announce">
     <span class="announce-group announce-date"><span>Melbourne</span><span class="sep">·</span><b>5–7 November 2026</b></span>
     <span class="announce-group announce-venue"><span class="sep">·</span><span>Upper Skin Clinic, Ivanhoe</span></span>
-    <span class="announce-group announce-availability"><span class="sep">·</span><b>11 of 12 appointments open</b></span>
+    <span class="announce-group announce-availability"><span class="sep">·</span><b>12 appointments across three days</b></span>
   </div>
   <header class="site-header">
     <div class="wrap header-inner">
-      <a class="wordmark" href="index.html" aria-label="Lemonade Brows Melbourne home">
+      <a class="wordmark" href="/" aria-label="Lemonade Brows Melbourne home">
         <img src="images/brand/lemonade-logo-black.png" alt="Lemonade Cosmetic Brows" width="758" height="278">
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Open navigation menu">
         <span class="nav-toggle-icon" aria-hidden="true"><span></span></span>
       </button>
       <nav class="nav" id="site-navigation" aria-label="Page navigation">
-        <a href="index.html#results">Results</a>
-        <a href="index.html#package">The package</a>
-        <a href="index.html#method">My method</a>
-        <a href="index.html#questions">Questions</a>
+        <a href="/#lean-results">Results</a>
+        <a href="/#lean-package">The package</a>
+        <a href="/#lean-process">Process</a>
+        <a href="/#lean-questions">Questions</a>
         <a class="button" href="tel:+61414235274">Call Harmony</a>
       </nav>
     </div>
@@ -239,7 +248,7 @@
           <p>If I don't believe cosmetic tattooing is right for you, I'll tell you. If it is, you'll know exactly what happens next before you decide.</p>
           <p>Prefer to ask something simple first? You can call or text me directly before filling this out.</p>
           <div class="contact-list">
-            <p><strong>11 of 12 appointments open</strong><br>5–7 November · Upper Skin Clinic, Ivanhoe</p>
+            <p><strong>5–7 November 2026</strong><br>Upper Skin Clinic, Ivanhoe</p>
             <p>Prefer to speak directly?<br><a href="tel:+61414235274">0414 235 274</a> · <a href="mailto:excuseme@lemonadebrows.au">excuseme@lemonadebrows.au</a></p>
           </div>
         </div>
@@ -269,8 +278,25 @@
                 </div>
               </fieldset>
               <div class="field full"><label for="preview-change">What would you most like to change?</label><textarea id="preview-change" name="change" placeholder="In your own words — there is no wrong answer."></textarea></div>
+              <fieldset class="field full booking-block" id="call-booking">
+                <legend>Book your free phone consultation</legend>
+                <p class="booking-help">Choose a time for your 15-minute call with Harmony. Your calendar booking is confirmed immediately after you send this form.</p>
+                <div class="booking-selects">
+                  <label for="call-date">Day
+                    <select id="call-date" name="call_date" disabled required>
+                      <option value="">Loading available days…</option>
+                    </select>
+                  </label>
+                  <label for="call-time">Time
+                    <select id="call-time" name="requested_start_at" disabled required>
+                      <option value="">Choose a day first</option>
+                    </select>
+                  </label>
+                </div>
+                <p class="slot-status" id="slot-status" aria-live="polite">Checking Harmony’s live calendar…</p>
+              </fieldset>
             </div>
-            <button class="button" type="submit">Send my suitability request</button>
+            <button class="button" type="submit">Send request and book my call</button>
             <p class="required-note">Harmony personally reads every request.</p>
             <p class="form-status" id="form-status" aria-live="polite"></p>
           </form>
@@ -345,6 +371,73 @@
       if (value) sessionStorage.setItem(`lemonade_${key}`, value);
     });
 
+    const bookingEndpoint = 'https://hxunrhnljvfvcjpmdpnb.supabase.co/functions/v1/lemonade-consult-booking';
+    const dateSelect = document.getElementById('call-date');
+    const timeSelect = document.getElementById('call-time');
+    const slotStatus = document.getElementById('slot-status');
+    let availableSlots = [];
+    let submittedRequestId = null;
+
+    const localDateKey = (iso) => {
+      const parts = new Intl.DateTimeFormat('en-AU', {
+        timeZone: 'Australia/Sydney', year: 'numeric', month: '2-digit', day: '2-digit'
+      }).formatToParts(new Date(iso));
+      const values = Object.fromEntries(parts.filter((part) => part.type !== 'literal').map((part) => [part.type, part.value]));
+      return `${values.year}-${values.month}-${values.day}`;
+    };
+    const dayLabel = (iso) => new Intl.DateTimeFormat('en-AU', {
+      timeZone: 'Australia/Sydney', weekday: 'long', day: 'numeric', month: 'long'
+    }).format(new Date(iso));
+    const timeLabel = (iso) => new Intl.DateTimeFormat('en-AU', {
+      timeZone: 'Australia/Sydney', hour: 'numeric', minute: '2-digit'
+    }).format(new Date(iso));
+
+    function populateTimes() {
+      const key = dateSelect.value;
+      const slots = availableSlots.filter((iso) => localDateKey(iso) === key);
+      timeSelect.innerHTML = '<option value="">Choose a time</option>' + slots
+        .map((iso) => `<option value="${iso}">${timeLabel(iso)}</option>`)
+        .join('');
+      timeSelect.disabled = !key;
+    }
+
+    async function loadCallSlots() {
+      dateSelect.disabled = true;
+      timeSelect.disabled = true;
+      slotStatus.textContent = 'Checking Harmony’s live calendar…';
+      try {
+        const response = await fetch(bookingEndpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'slots' }),
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || !Array.isArray(result.slots)) throw new Error(result.error || 'Times unavailable');
+        availableSlots = result.slots;
+        if (!availableSlots.length) throw new Error('No online times are currently available');
+        const firstByDate = new Map();
+        availableSlots.forEach((iso) => {
+          const key = localDateKey(iso);
+          if (!firstByDate.has(key)) firstByDate.set(key, iso);
+        });
+        dateSelect.innerHTML = '<option value="">Choose a day</option>' + Array.from(firstByDate.entries())
+          .map(([key, iso]) => `<option value="${key}">${dayLabel(iso)}</option>`)
+          .join('');
+        dateSelect.disabled = false;
+        slotStatus.textContent = 'Times shown are Sydney and Melbourne local time.';
+      } catch (error) {
+        availableSlots = [];
+        dateSelect.required = false;
+        timeSelect.required = false;
+        dateSelect.innerHTML = '<option value="">Harmony will arrange the call with you</option>';
+        timeSelect.innerHTML = '<option value="">No time needed</option>';
+        slotStatus.textContent = 'Online times could not be loaded. You can still send your request and Harmony will arrange the call with you.';
+      }
+    }
+
+    dateSelect.addEventListener('change', populateTimes);
+    loadCallSlots();
+
     document.getElementById('consult-form').addEventListener('submit', async (event) => {
       event.preventDefault();
       const form = event.currentTarget;
@@ -356,9 +449,10 @@
       const phone = String(data.get('phone') || '').trim();
       const email = String(data.get('email') || '').trim();
       const change = String(data.get('change') || '').trim();
-      const requestId = (window.crypto && crypto.randomUUID)
+      const requestedStartAt = String(data.get('requested_start_at') || '');
+      const requestId = submittedRequestId || ((window.crypto && crypto.randomUUID)
         ? crypto.randomUUID()
-        : `melb-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+        : `melb-${Date.now()}-${Math.random().toString(36).slice(2)}`);
       const payload = {
         request_id: requestId,
         name,
@@ -366,6 +460,7 @@
         email,
         concerns,
         change,
+        requested_start_at: requestedStartAt || null,
         website: String(data.get('website') || ''),
         referrer: document.referrer || null,
         landing_page: window.location.href,
@@ -375,31 +470,50 @@
       });
 
       button.disabled = true;
-      button.textContent = 'Sending…';
-      status.textContent = 'Sending your request securely…';
+      button.textContent = submittedRequestId ? 'Confirming call…' : 'Sending…';
+      status.textContent = submittedRequestId ? 'Confirming your new call time…' : 'Sending your request securely…';
 
       try {
-        const response = await fetch('https://hxunrhnljvfvcjpmdpnb.supabase.co/functions/v1/melbourne-consultation', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        });
-        const result = await response.json().catch(() => ({}));
-        if (!response.ok || !result.ok) throw new Error(result.error || 'Submission failed');
-
-        sessionStorage.setItem('melbourne_consultation_submitted', requestId);
-        if (window.fbq) {
-          fbq('track', 'Lead', {
-            content_name: 'Melbourne consultation request',
-            content_category: 'Melbourne brow restoration',
-            value: 1100,
-            currency: 'AUD'
+        if (!submittedRequestId) {
+          const response = await fetch('https://hxunrhnljvfvcjpmdpnb.supabase.co/functions/v1/melbourne-consultation', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
           });
+          const result = await response.json().catch(() => ({}));
+          if (!response.ok || !result.ok) throw new Error(result.error || 'Submission failed');
+          submittedRequestId = requestId;
+          sessionStorage.setItem('melbourne_consultation_submitted', requestId);
+          if (window.fbq) {
+            fbq('track', 'Lead', {
+              content_name: 'Melbourne consultation request',
+              content_category: 'Melbourne brow restoration',
+              value: 1100,
+              currency: 'AUD'
+            });
+          }
+        }
+
+        if (requestedStartAt) {
+          const bookingResponse = await fetch(bookingEndpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'confirm', request_id: requestId, start_at: requestedStartAt }),
+          });
+          const bookingResult = await bookingResponse.json().catch(() => ({}));
+          if (!bookingResponse.ok || !bookingResult.confirmed) {
+            await loadCallSlots();
+            button.disabled = false;
+            button.textContent = 'Confirm another call time';
+            status.textContent = 'Your consultation request is saved, but that call time could not be confirmed. Please choose another available time and try again.';
+            return;
+          }
+          sessionStorage.setItem('melbourne_consultation_call_start', bookingResult.start_at || requestedStartAt);
         }
         window.location.assign('thank-you.html');
       } catch (error) {
         button.disabled = false;
-        button.textContent = 'Send my suitability request';
+        button.textContent = submittedRequestId ? 'Confirm another call time' : 'Send request and book my call';
         status.innerHTML = 'I couldn’t send your request just now. Please try again, call <a href="tel:+61414235274">0414 235 274</a>, or email <a href="mailto:excuseme@lemonadebrows.au">excuseme@lemonadebrows.au</a>.';
       }
     });
