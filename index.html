@@ -2,7 +2,7 @@
 <html lang="en-AU">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://melbourne.lemonadebrows.au/">
   <link rel="icon" type="image/png" href="/favicon.png?v=2">
@@ -172,11 +172,10 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; }
-    html { max-width: 100%; overflow-x: clip; scroll-behavior: smooth; scroll-padding-top: 88px; }
+    html { max-width: 100%; scroll-behavior: smooth; scroll-padding-top: 88px; }
     body {
       margin: 0;
       max-width: 100%;
-      overflow-x: clip;
       background: var(--background);
       color: var(--contrast);
       font-family: var(--body);
@@ -738,12 +737,7 @@
         padding: .7rem var(--gutter) calc(.7rem + env(safe-area-inset-bottom,0px));
         background: #241f1a;
         color: var(--on-dark-muted);
-        box-shadow: 0 -8px 24px rgba(20,17,14,.16);
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        will-change: transform;
+        border-top: 1px solid rgba(255,255,255,.12);
       }
       .mobile-booking-bar span { min-width: 0; font-family: var(--accent-font); font-size: .61rem; letter-spacing: .08em; line-height: 1.4; text-transform: uppercase; }
       .mobile-booking-bar b { display: block; color: #fff; font-weight: 600; }

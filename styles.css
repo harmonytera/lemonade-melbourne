@@ -272,10 +272,7 @@ hr.rule { border: 0; border-top: 1px solid var(--rule); margin: 0; }
   position: fixed !important; inset: auto 0 0; z-index: 60;
   width: 100%; max-width: 100vw; box-sizing: border-box;
   background: #241f1a;
-  box-shadow: 0 -8px 24px rgba(20,17,14,.16);
-  -webkit-transform: translateZ(0); transform: translateZ(0);
-  -webkit-backface-visibility: hidden; backface-visibility: hidden;
-  will-change: transform;
+  border-top: 1px solid rgba(255,255,255,.12);
   padding: .75rem var(--gutter);
   padding-bottom: calc(.75rem + env(safe-area-inset-bottom, 0px));
   align-items: center; justify-content: space-between; gap: 1rem;
@@ -1001,7 +998,7 @@ fieldset { border: 0; padding: 0; margin: 0 0 1.25rem; }
 
 
 /* ---------- Mobile containment and accessible navigation ------------------ */
-html, body { max-width: 100%; overflow-x: clip; }
+html, body { max-width: 100%; }
 .wrap, .tight, .header-inner, .footer-grid, .footer-column { min-width: 0; }
 .info-page .eyebrow::before { display: none; }
 .footer-grid a, .contact-list a, .text-link { overflow-wrap: anywhere; }
