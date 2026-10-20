@@ -255,7 +255,7 @@
 
         <div class="form-card">
           <h3>Check if you're suitable</h3>
-          <p>Enough detail for me to make the call useful. You are not committing to treatment. I’ll contact you to arrange the call, answer your questions and tell you honestly if I think this is right for you.</p>
+          <p>Enough detail for me to make the call useful. You are not committing to treatment. Choose a time below and I’ll review what you’ve shared before we speak, answer your questions and tell you honestly if I think this is right for you.</p>
           <div class="package-note">
             <strong>The Melbourne package is $1,100.</strong>
             This includes both appointments: your initial brow restoration appointment and the six-week perfecting session. No payment is taken from this form.
@@ -432,6 +432,7 @@
         dateSelect.innerHTML = '<option value="">Harmony will arrange the call with you</option>';
         timeSelect.innerHTML = '<option value="">No time needed</option>';
         slotStatus.textContent = 'Online times could not be loaded. You can still send your request and Harmony will arrange the call with you.';
+        document.querySelector('#consult-form button[type="submit"]').textContent = 'Send my suitability request';
       }
     }
 
