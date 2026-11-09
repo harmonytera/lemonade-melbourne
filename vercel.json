@@ -6,11 +6,15 @@
   },
   "routes": [
     {
-      "src": "/(index|consultation|aftercare|policies|pre-appointment)\\.html",
+      "src": "/(index|consultation|aftercare|policies|pre-appointment|thank-you)\\.html",
       "status": 308,
       "headers": {
         "Location": "/$1"
       }
+    },
+    {
+      "src": "/thank-you/?",
+      "dest": "/thank-you.html"
     },
     {
       "src": "/(index|consultation|aftercare|policies|pre-appointment)/?",
