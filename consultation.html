@@ -212,14 +212,14 @@
     src="https://www.facebook.com/tr?id=1321228265620763&ev=PageView&noscript=1"
   /></noscript>
   <!-- End Meta Pixel Code -->
-  <script src="availability.js" defer></script>
+
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <div class="announce">
-    <span class="announce-group announce-date"><span>Melbourne</span><span class="sep">·</span><b>5–7 November 2026</b></span>
+    <span class="announce-group announce-date"><span>Melbourne</span><span class="sep">·</span><b>17–19 December 2026</b></span>
     <span class="announce-group announce-venue"><span class="sep">·</span><span>Upper Skin Clinic, Ivanhoe</span></span>
-    <span class="announce-group announce-availability"><span class="sep">·</span><b>12 appointments across three days</b></span>
+    
   </div>
   <header class="site-header">
     <div class="wrap header-inner">
@@ -249,7 +249,7 @@
           <p>If I don't believe cosmetic tattooing is right for you, I'll tell you. If it is, you'll know exactly what happens next before you decide.</p>
           <p>Prefer to ask something simple first? You can call or text me directly before filling this out.</p>
           <div class="contact-list">
-            <p><strong>5–7 November 2026</strong><br>Upper Skin Clinic, Ivanhoe</p>
+            <p><strong>17–19 December 2026</strong><br>Upper Skin Clinic, Ivanhoe</p>
             <p>Prefer to speak directly?<br><a href="tel:+61414235274">0414 235 274</a> · <a href="mailto:excuseme@lemonadebrows.au">excuseme@lemonadebrows.au</a></p>
           </div>
         </div>
@@ -259,7 +259,7 @@
           <p>Enough detail for me to make the call useful. You are not committing to treatment. Choose a time below and I’ll review what you’ve shared before we speak, answer your questions and tell you honestly if I think this is right for you.</p>
           <div class="package-note">
             <strong>The Melbourne package is $1,100.</strong>
-            This includes both appointments: your initial brow restoration appointment and the six-week perfecting session. No payment is taken from this form.
+            This includes both appointments: your initial brow restoration appointment and your perfecting session after healing on 4–6 February 2027. No payment is taken from this form.
           </div>
           <p class="required-note"><span class="required-mark" aria-hidden="true">*</span> Required contact details</p>
           <form id="consult-form" data-clarity-mask="true">
@@ -304,7 +304,7 @@
         </div>
       </div>
       <div class="wrap next-visit">
-        <p>Can't make November? I plan to return to Melbourne. You can ask to be told about the next dates in your message.</p>
+        <p>Can't make December? I plan to return to Melbourne. You can ask to be told about the next dates in your message.</p>
         <a class="text-link" href="mailto:excuseme@lemonadebrows.au?subject=Future%20Melbourne%20dates">Email me about future dates →</a>
       </div>
     </section>
@@ -321,7 +321,7 @@
           <p class="footer-copyright">© 2026 Lemonade Brows</p>
         </div>
         <div class="footer-column">
-          <p><strong>Melbourne, 5–7 November 2026</strong></p>
+          <p><strong>Melbourne, 17–19 December 2026</strong></p>
           <p>Upper Skin Clinic<br>185 Upper Heidelberg Road<br>Ivanhoe VIC 3079</p>
         </div>
         <div class="footer-column">
@@ -414,7 +414,7 @@
         });
         const result = await response.json().catch(() => ({}));
         if (!response.ok || !Array.isArray(result.slots)) throw new Error(result.error || 'Times unavailable');
-        availableSlots = result.slots;
+        availableSlots = result.slots.filter((iso) => Date.parse(iso) > Date.now() && localDateKey(iso) < '2026-12-17');
         if (!availableSlots.length) throw new Error('No online times are currently available');
         const firstByDate = new Map();
         availableSlots.forEach((iso) => {
