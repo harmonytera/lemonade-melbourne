@@ -1,35 +1,27 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
   "functions": {
     "api/tour-page.js": {
       "includeFiles": "*.html"
     }
   },
-  "rewrites": [
+  "routes": [
     {
-      "source": "/",
-      "destination": "/api/tour-page?page=index"
+      "src": "/(index|consultation|aftercare|policies|pre-appointment)\\.html",
+      "status": 308,
+      "headers": {
+        "Location": "/$1"
+      }
     },
     {
-      "source": "/index",
-      "destination": "/api/tour-page?page=index"
+      "src": "/(index|consultation|aftercare|policies|pre-appointment)/?",
+      "dest": "/api/tour-page?page=$1"
     },
     {
-      "source": "/consultation",
-      "destination": "/api/tour-page?page=consultation"
+      "src": "/",
+      "dest": "/api/tour-page?page=index"
     },
     {
-      "source": "/aftercare",
-      "destination": "/api/tour-page?page=aftercare"
-    },
-    {
-      "source": "/policies",
-      "destination": "/api/tour-page?page=policies"
-    },
-    {
-      "source": "/pre-appointment",
-      "destination": "/api/tour-page?page=pre-appointment"
+      "handle": "filesystem"
     }
   ]
 }
