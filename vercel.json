@@ -1,4 +1,35 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "functions": {
+    "api/tour-page.js": {
+      "includeFiles": "*.html"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/api/tour-page?page=index"
+    },
+    {
+      "source": "/index",
+      "destination": "/api/tour-page?page=index"
+    },
+    {
+      "source": "/consultation",
+      "destination": "/api/tour-page?page=consultation"
+    },
+    {
+      "source": "/aftercare",
+      "destination": "/api/tour-page?page=aftercare"
+    },
+    {
+      "source": "/policies",
+      "destination": "/api/tour-page?page=policies"
+    },
+    {
+      "source": "/pre-appointment",
+      "destination": "/api/tour-page?page=pre-appointment"
+    }
+  ]
 }
