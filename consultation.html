@@ -187,6 +187,7 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-Y5MG107RR9');
+    gtag('config', 'AW-17652700363');
   </script>
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -486,6 +487,15 @@
           if (!response.ok || !result.ok) throw new Error(result.error || 'Submission failed');
           submittedRequestId = requestId;
           sessionStorage.setItem('melbourne_consultation_submitted', requestId);
+          try {
+            if (window.gtag) {
+              let ph = phone.replace(/\D/g, '');
+              if (ph.startsWith('0')) ph = '61' + ph.slice(1);
+              gtag('set', 'user_data', { email: email || undefined, phone_number: ph ? '+' + ph : undefined });
+              gtag('event', 'conversion_event_submit_lead_form');
+              gtag('event', 'generate_lead', { form_name: 'melbourne_consultation' });
+            }
+          } catch (err) { /* tracking must never block the form */ }
           if (window.fbq) {
             fbq('track', 'Lead', {
               content_name: 'Melbourne consultation request',
