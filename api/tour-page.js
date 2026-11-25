@@ -36,7 +36,7 @@ module.exports = async function handler(req,res) {
     if(c.capacity) output=output.replace(/(<div class="announce">[\s\S]*?)(<\/div>)/,(_,bar,end)=>bar+'<span> · '+Number(c.capacity)+' new-client appointments</span>'+end);
     output=output.replace('</head>','<meta name="tour-revision" content="'+Number(c.revision)+'"></head>');
     res.setHeader('Cache-Control','public, max-age=0, must-revalidate');
-    res.setHeader('Vercel-CDN-Cache-Control','public, s-maxage=15, stale-if-error=86400');
+    res.setHeader('Vercel-CDN-Cache-Control','public, s-maxage=300, stale-while-revalidate=86400, stale-if-error=86400');
     res.setHeader('Content-Type','text/html; charset=utf-8');
     return res.status(200).send(output);
   } catch {res.setHeader('Retry-After','15'); return res.status(503).send('Tour details are temporarily unavailable. Please try again shortly.');}
