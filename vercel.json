@@ -27,5 +27,10 @@
     {
       "handle": "filesystem"
     }
-  ]
+  ],
+  "git": {
+    "deploymentEnabled": {
+      "draft/results-page": false
+    }
+  }
 }
