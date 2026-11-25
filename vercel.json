@@ -27,5 +27,10 @@
     {
       "handle": "filesystem"
     }
-  ]
+  ],
+  "git": {
+    "deploymentEnabled": {
+      "assets/sydney-uploads": false
+    }
+  }
 }
