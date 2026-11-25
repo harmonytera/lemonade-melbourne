@@ -8,7 +8,7 @@ function range(a,b,month='long',year=true) {
   if (a.slice(0,7)===b.slice(0,7)) return Number(a.slice(8))+'–'+formatter.format(d(b));
   return formatter.format(d(a))+' – '+formatter.format(d(b));
 }
-const pages = new Set(['index','consultation','aftercare','policies','pre-appointment']);
+const pages = new Set(['index','consultation','aftercare','policies','pre-appointment','results']);
 module.exports = async function handler(req,res) {
   const page=req.query.page || 'index';
   if (!pages.has(page)) return res.status(404).end();
